@@ -6,7 +6,7 @@
     - Python
     - TCP Sockets
     - HTTP
-  github: https://github.com/aadhilanwar
+  github: https://github.com/aadhil-anwer
   # live: https://optional-live-url.com  (uncomment if there's a live demo)
 
 # - name: Another Project
@@ -14,4 +14,4 @@
 #   tech:
 #     - Go
 #     - Redis
-#   github: https://github.com/aadhilanwar/repo-name
+#   github: https://github.com/aadhil-anwer/repo-name

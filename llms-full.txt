@@ -1,0 +1,61 @@
+---
+---
+# Aadhil Anwar - Full Site Content
+
+> Security engineer at GoDaddy specializing in network security, vulnerability research, API exploitation, and cloud security on AWS.
+
+---
+
+## About
+
+Aadhil Anwar is a security engineer working in network security at GoDaddy, focused on infrastructure security, access control architecture, and cloud security on AWS.
+
+He has reported high-severity vulnerabilities (CVSS 9.1, 8.8) in production APIs with working PoCs, designed ACL and VLAN segmentation policies for production environments, and integrated security into DevSecOps workflows.
+
+Previously interned in network engineering at Lovely Professional University (LPU), where he automated log analysis pipelines using Python and Bash, identified anomalies and suspicious traffic patterns using Wireshark and Splunk, and refined VLAN segmentation and access controls. He also documented internal security SOPs for the infrastructure team.
+
+As Cybersecurity Lead at the Cisco CyberSec Symposium, he built vulnerable lab environments from scratch and delivered hands-on training to 2000+ students covering IDOR, SSRF, privilege escalation, and API security.
+
+He holds five industry certifications, has placed top 5 in multiple national CTFs, and sits in the top 3% on TryHackMe across 120+ labs. He received a 1,00,000 INR startup grant for a privacy-focused blockchain feedback system.
+
+### Skills
+
+Offensive: Web & API Exploitation, Penetration Testing, Vulnerability Research, CVE Discovery & Disclosure
+Defensive: Network Security, SIEM & Log Analysis (Splunk, ELK), Threat Detection & Triage, Security Automation
+Networking: VLAN/ACL Architecture, Packet Analysis, Cloud Security (AWS), Network Architecture
+Tools: Wireshark, Burp Suite, Nmap, Splunk, ELK Stack, Metasploit, Nessus, Python, Bash, Git
+
+### Certifications
+
+CompTIA Security+ CE, CompTIA Network+ CE, CompTIA CySA+, CompTIA PenTest+, QuickHeal DFIR
+
+### Achievements
+
+- Reported high-severity CVEs (CVSS 9.1, 8.8) in production APIs with working PoCs
+- Top 5 finishes in national CTFs: Noob Army (4th), Encrypt Edge (5th), RSA Cloud (6th)
+- Received 1,00,000 INR startup grant for a privacy-focused blockchain feedback system
+- Top 3% on TryHackMe across 120+ labs (offensive, defensive, automation)
+- Trained 2000+ students in hands-on cybersecurity workshops
+
+---
+
+## Blog Post: Buying Rekhta Tickets Worth INR 1499 for Free (April 2025)
+
+Found a critical parameter tampering vulnerability in Jashn-e-Rekhta's payment flow. The frontend sent a POST request to /api/createorder with a client-controlled "amount" parameter. The backend blindly trusted the frontend price without server-side validation. Changed the amount from 1499 to 2, received a valid UPI payment request for 2 INR, paid it, and received a confirmed ticket. The payment gateway (Razorpay) processed whatever amount the backend sent - it doesn't validate correctness. This is a broken trust boundary at the application layer. Vulnerability was responsibly reported and patched.
+
+## Blog Post: How I Found a Secret Backdoor to a University's News Feed (January 2025)
+
+Discovered a broken access control vulnerability (CVSS 9.6) in a university's ASP.NET API. During subdomain enumeration, found services.university.edu running a default ASP.NET page. Directory brute-forcing revealed /Help - a fully exposed API documentation page. Under /api/Media/, found unauthenticated CRUD endpoints for press releases (GetPressRelease, AddPressRelease, UpdatePressRelease, DeletePressReleaseById). Sent a DELETE request with a valid ID - the press release was removed from the university's live website. POST and PUT were equally unprotected. Any person on the internet could create, modify, or delete official university press releases. Root causes: broken access control, API docs exposed in production, no network segmentation, forgotten infrastructure. Reported and patched.
+
+## Blog Post: I Reverse-Engineered a Live Phishing Operation Targeting My University (March 2025)
+
+Found a live phishing campaign targeting LPU students and staff. The phishing email was sent from a compromised LPU email address, bypassing SPF/DKIM/DMARC. The cloned Outlook login page was in French (localization error). Traced the credential exfiltration to a Telegram bot - the bot token and chat ID were in plaintext in the page's JavaScript. Queried the Telegram Bot API and found hundreds of compromised accounts. The C2 also contained credentials from the French Ministry of National Education (education.gouv.fr), major French electronics retailers, other .edu institutions, and South Asian universities - revealing a multi-target, multi-country operation. Reported to all affected domains. Most responded and acted. LPU's dean dismissed it as "just student data."
+
+---
+
+## Contact
+
+- GitHub: https://github.com/aadhil-anwer
+- LinkedIn: https://in.linkedin.com/in/aadhilanwer
+- X: https://x.com/z3r0din
+- Website: https://aadhilanwar.github.io

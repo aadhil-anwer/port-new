@@ -1,7 +1,9 @@
 ---
 layout: default
 ---
-<article class="post-full container">
+<article class="post-full container" itemscope itemtype="https://schema.org/BlogPosting">
+  <meta itemprop="author" content="Aadhil Anwar">
+  <meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">
   <header class="post-header">
     <div class="post-meta">
       <time>{{ page.date | date: "%B %d, %Y" }}</time>
@@ -14,12 +16,12 @@ layout: default
       {% endfor %}
       {% endif %}
     </div>
-    <h1>{{ page.title }}</h1>
+    <h1 itemprop="headline">{{ page.title }}</h1>
     {% if page.description %}
     <p class="post-subtitle">{{ page.description }}</p>
     {% endif %}
   </header>
-  <div class="post-content prose">
+  <div class="post-content prose" itemprop="articleBody">
     {{ content }}
   </div>
   <footer class="post-footer">

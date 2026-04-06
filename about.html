@@ -1,17 +1,20 @@
 ---
 layout: default
 title: About
-description: About Aadhil Anwar — security engineer, network defender, researcher.
+description: "Aadhil Anwar - security engineer at GoDaddy. Background in network security, vulnerability research, penetration testing, API exploitation, and cloud security on AWS. CVSS 9.1 and 8.8 vulnerabilities reported."
 ---
 <section class="page-section">
   <div class="container">
     <h1 class="page-title">About</h1>
 
     <div class="about-content prose">
-      <h2>My Story</h2>
-      <p>I'm Aadhil Anwar — a security engineer who started out curious about how systems break and turned that into a career making sure they don't.</p>
-      <p>Currently working in network security at <strong>GoDaddy</strong>, I spend my days thinking about vulnerability research, API security, network defense, and offensive testing. Previously, I was a Network Engineering Intern at <strong>LPU</strong>, where I automated log analysis, hunted network anomalies, and hardened infrastructure.</p>
-      <p>I've reported high-severity CVEs in production APIs, led cybersecurity workshops for 2000+ students, and built servers from raw TCP sockets because I wanted to understand what's actually happening at the wire level.</p>
+      <h2>Background</h2>
+      <p>I'm a security engineer working in network security at <strong>GoDaddy</strong>, focused on infrastructure security, access control architecture, and cloud security on AWS.</p>
+      <p>I've reported high-severity vulnerabilities (<strong>CVSS 9.1, 8.8</strong>) in production APIs with working PoCs, designed ACL and VLAN segmentation policies for production environments, and integrated security into DevSecOps workflows.</p>
+      <p>Previously, I interned in network engineering at <strong>LPU</strong>, where I automated log analysis pipelines using Python and Bash, identified anomalies and suspicious traffic patterns using Wireshark and Splunk, and refined VLAN segmentation and access controls. I also documented internal security SOPs for the infrastructure team.</p>
+      <p>As Cybersecurity Lead at the <strong>Cisco CyberSec Symposium</strong>, I built vulnerable lab environments from scratch and delivered hands-on training to 2000+ students covering IDOR, SSRF, privilege escalation, and API security.</p>
+      <p>I hold five industry certifications, have placed top 5 in multiple national CTFs, and sit in the top 3% on TryHackMe across 120+ labs. I received a <strong>&#x20B9;1,00,000 startup grant</strong> for a privacy-focused blockchain feedback system.</p>
+      <p>I'm currently building in public, writing about what I learn, and going deeper into vulnerability research and offensive security.</p>
 
       <h2>Skills</h2>
       <div class="skills-grid">
@@ -21,24 +24,24 @@ description: About Aadhil Anwar — security engineer, network defender, researc
             <li>Web & API Exploitation</li>
             <li>Penetration Testing</li>
             <li>Vulnerability Research</li>
-            <li>CTF Competitions</li>
+            <li>CVE Discovery & Disclosure</li>
           </ul>
         </div>
         <div class="skill-group">
           <h4>Defensive</h4>
           <ul>
             <li>Network Security</li>
-            <li>SIEM & Log Analysis</li>
-            <li>Incident Response</li>
-            <li>Digital Forensics</li>
+            <li>SIEM & Log Analysis (Splunk, ELK)</li>
+            <li>Threat Detection & Triage</li>
+            <li>Security Automation</li>
           </ul>
         </div>
         <div class="skill-group">
           <h4>Networking</h4>
           <ul>
-            <li>VLAN / ACL Configuration</li>
+            <li>VLAN / ACL Architecture</li>
             <li>Packet Analysis</li>
-            <li>Firewall Management</li>
+            <li>Cloud Security (AWS)</li>
             <li>Network Architecture</li>
           </ul>
         </div>
@@ -47,7 +50,7 @@ description: About Aadhil Anwar — security engineer, network defender, researc
           <ul>
             <li>Wireshark, Burp Suite, Nmap</li>
             <li>Splunk, ELK Stack</li>
-            <li>Metasploit, SQLMap</li>
+            <li>Metasploit, Nessus</li>
             <li>Python, Bash, Git</li>
           </ul>
         </div>
@@ -61,9 +64,71 @@ description: About Aadhil Anwar — security engineer, network defender, researc
       </div>
 
       <h2>Resume</h2>
-      <p>
+      <div class="resume-actions">
         <a href="{{ '/assets/resume.pdf' | relative_url }}" class="btn" download>Download Resume (PDF)</a>
-      </p>
+        <button class="btn btn-secondary" id="copy-profile" onclick="copyProfile()">Copy Profile</button>
+        <span class="copy-hint">Copies a structured summary of my profile to your clipboard.</span>
+      </div>
+
+      <script>
+      function copyProfile() {
+        const profile = `name: Aadhil Anwar
+title: Security Engineer
+organization: GoDaddy
+focus: Network Security, Infrastructure Security, Access Control Architecture, Cloud Security (AWS)
+
+about: |
+  Security engineer at GoDaddy working on infrastructure security, access control architecture, and cloud security on AWS. Reported high-severity vulnerabilities (CVSS 9.1, 8.8) in production APIs with working PoCs. Designed ACL and VLAN segmentation policies for production environments. Integrated security into DevSecOps workflows. Previously interned in network engineering at LPU. Cybersecurity Lead at Cisco CyberSec Symposium, training 2000+ students.
+
+skills:
+  offensive: [Web & API Exploitation, Penetration Testing, Vulnerability Research, CVE Discovery & Disclosure]
+  defensive: [Network Security, SIEM & Log Analysis, Threat Detection & Triage, Security Automation]
+  networking: [VLAN/ACL Architecture, Packet Analysis, Cloud Security (AWS), Network Architecture]
+  tools: [Wireshark, Burp Suite, Nmap, Splunk, ELK Stack, Metasploit, Nessus, Python, Bash, Git]
+
+certifications: [CompTIA Security+ CE, CompTIA Network+ CE, CompTIA CySA+, CompTIA PenTest+, QuickHeal DFIR]
+
+achievements:
+  - Reported high-severity CVEs (CVSS 9.1, 8.8) in production APIs with working PoCs
+  - Top 5 in national CTFs: Noob Army (4th), Encrypt Edge (5th), RSA Cloud (6th)
+  - Top 3% on TryHackMe across 120+ labs
+  - Trained 2000+ students in cybersecurity workshops
+  - Received INR 1,00,000 startup grant for blockchain feedback system
+
+education:
+  institution: Lovely Professional University
+  degree: B.Tech
+
+projects:
+  - name: Low-Level HTTP/1.1 Server
+    description: HTTP/1.1 server in Python using raw TCP sockets with request parsing, chunked transfer encoding, and input validation.
+    tech: [Python, TCP Sockets, HTTP]
+
+research:
+  - title: Buying Rekhta Tickets Worth INR 1499 for Free
+    summary: Parameter tampering in payment flow. Backend trusted client-controlled price without server-side validation. Responsibly disclosed and patched.
+  - title: Secret Backdoor to a University's News Feed
+    summary: Broken access control (CVSS 9.6) in ASP.NET API. Unauthenticated CRUD on official press releases via exposed API docs. Reported and patched.
+  - title: Reverse-Engineered a Live Phishing Operation
+    summary: Traced credential harvesting from compromised university email to Telegram C2 bot. Found hundreds of stolen accounts across French government, South Asian universities, and electronics retailers.
+
+reading:
+  technical: [Hacking: The Art of Exploitation, The Web Application Hacker's Handbook, Attacking Network Protocols, Practical Malware Analysis]
+  non_technical: [Crime and Punishment, Khasakkinte Ithihasam, Meditations]
+
+links:
+  website: https://aadhilanwar.github.io
+  github: https://github.com/aadhil-anwer
+  linkedin: https://in.linkedin.com/in/aadhilanwer
+  x: https://x.com/z3r0din`;
+
+        navigator.clipboard.writeText(profile).then(() => {
+          const btn = document.getElementById('copy-profile');
+          btn.textContent = 'Copied!';
+          setTimeout(() => { btn.textContent = 'Copy Profile'; }, 2000);
+        });
+      }
+      </script>
     </div>
   </div>
 </section>

@@ -1,21 +1,16 @@
 # Your social links. Update the URLs here.
 
 - name: GitHub
-  url: https://github.com/aadhilanwar
-  username: aadhilanwar
+  url: https://github.com/aadhil-anwer
+  username: aadhil-anwer
   icon: github
 
 - name: LinkedIn
-  url: https://linkedin.com/in/aadhilanwar
-  username: aadhilanwar
+  url: https://in.linkedin.com/in/aadhilanwer
+  username: aadhilanwer
   icon: linkedin
 
-- name: Twitter
-  url: https://twitter.com/aadhilanwar
-  username: "@aadhilanwar"
+- name: X
+  url: https://x.com/z3r0din
+  username: "@z3r0din"
   icon: twitter
-
-- name: Email
-  url: "mailto:aadhil@example.com"
-  username: aadhil@example.com
-  icon: email

@@ -1,17 +1,33 @@
 title: Aadhil Anwar
-description: Security engineer. Networks, exploitation, and breaking things.
+description: "Security engineer specializing in network security, vulnerability research, and API exploitation. Currently at GoDaddy working on infrastructure security, access control architecture, and cloud security on AWS."
 url: "https://aadhilanwar.github.io"
 baseurl: ""
-author: Aadhil Anwar
 
-permalink: /blog/:slug/
+# Author (used by jekyll-seo-tag for JSON-LD Person schema)
+author:
+  name: Aadhil Anwar
+  url: "https://aadhilanwar.github.io"
+  twitter: z3r0din
 
-collections:
-  writeups:
-    output: true
-    permalink: /writeups/:slug/
+# Social profiles (used by jekyll-seo-tag for sameAs in JSON-LD)
+social:
+  name: Aadhil Anwar
+  links:
+    - https://github.com/aadhil-anwer
+    - https://in.linkedin.com/in/aadhilanwer
+    - https://x.com/z3r0din
 
+# Twitter card config
+twitter:
+  username: z3r0din
+  card: summary
+
+# Default OG image for social shares
 defaults:
+  - scope:
+      path: ""
+    values:
+      image: /images/og-default.png
   - scope:
       path: "_posts"
       type: posts
@@ -25,6 +41,13 @@ defaults:
       layout: post
       type: writeup
 
+permalink: /blog/:slug/
+
+collections:
+  writeups:
+    output: true
+    permalink: /writeups/:slug/
+
 markdown: kramdown
 kramdown:
   input: GFM
@@ -33,6 +56,7 @@ kramdown:
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-feed
 
 exclude:
   - README.md
@@ -40,3 +64,6 @@ exclude:
   - Gemfile.lock
   - node_modules
   - vendor
+  - js/avatar.js
+  - images/character.glb
+  - images/char_enviorment.hdr

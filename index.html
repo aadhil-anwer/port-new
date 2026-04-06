@@ -1,8 +1,74 @@
 ---
 layout: default
 title: Home
+description: "Aadhil Anwar - Security engineer at GoDaddy specializing in network security, vulnerability research, API exploitation, and cloud security on AWS."
 ---
 {% include icons.html %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "dateCreated": "2025-01-01T00:00:00+05:30",
+  "dateModified": "2026-04-07T00:00:00+05:30",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "Aadhil Anwar",
+    "alternateName": ["aadhil-anwer", "@z3r0din", "z3r0din"],
+    "url": "https://aadhilanwar.github.io",
+    "image": "https://aadhilanwar.github.io/images/headshot.jpg",
+    "jobTitle": "Security Engineer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "GoDaddy",
+      "url": "https://godaddy.com"
+    },
+    "description": "Security engineer at GoDaddy specializing in network security, vulnerability research, API exploitation, and cloud security on AWS. Reported high-severity vulnerabilities (CVSS 9.1, 8.8, 9.6) in production APIs and university systems. Top 3% on TryHackMe. 5x CompTIA certified.",
+    "knowsAbout": [
+      "Network Security",
+      "Vulnerability Research",
+      "Penetration Testing",
+      "API Security",
+      "Cloud Security",
+      "AWS",
+      "DevSecOps",
+      "Web Application Security",
+      "Infrastructure Security",
+      "VLAN Architecture",
+      "Access Control",
+      "Threat Detection",
+      "Security Automation",
+      "Bug Bounty",
+      "CVE Discovery",
+      "Incident Response",
+      "Phishing Analysis",
+      "Burp Suite",
+      "Wireshark",
+      "Splunk",
+      "Metasploit",
+      "Nessus",
+      "Python",
+      "Bash"
+    ],
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Lovely Professional University"
+    },
+    "sameAs": [
+      "https://github.com/aadhil-anwer",
+      "https://in.linkedin.com/in/aadhilanwer",
+      "https://x.com/z3r0din"
+    ],
+    "hasCredential": [
+      { "@type": "EducationalOccupationalCredential", "name": "CompTIA Security+ CE" },
+      { "@type": "EducationalOccupationalCredential", "name": "CompTIA Network+ CE" },
+      { "@type": "EducationalOccupationalCredential", "name": "CompTIA CySA+" },
+      { "@type": "EducationalOccupationalCredential", "name": "CompTIA PenTest+" },
+      { "@type": "EducationalOccupationalCredential", "name": "QuickHeal DFIR" }
+    ]
+  }
+}
+</script>
 
 <section class="hero">
   <div class="container-wide">
@@ -56,6 +122,7 @@ title: Home
         <div class="empty-state"><p>Coming soon. Stay tuned.</p></div>
         {% endif %}
       </div>
+      <!-- Writeups section commented out
       <div class="col">
         <div class="section-header">
           <h2>Writeups</h2>
@@ -73,34 +140,7 @@ title: Home
         <div class="empty-state"><p>Coming soon. Stay tuned.</p></div>
         {% endif %}
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container-wide">
-    <div class="section-header">
-      <h2>Bookshelf</h2>
-      <span class="header-dot">&bull;</span>
-      <a href="{{ '/bookshelf' | relative_url }}" class="section-link">View all &rarr;</a>
-    </div>
-    <p class="section-desc">Books I'm reading or have read.</p>
-    {% assign all_subcats = site.data.books | map: "subcategory" | uniq %}
-    <div class="columns-2">
-      {% for subcat in all_subcats %}
-      {% assign subcat_books = site.data.books | where: "subcategory", subcat %}
-      <div class="col">
-        <h3 class="subsection-title">{{ subcat }}</h3>
-        <ul class="bullet-list">
-          {% for book in subcat_books limit:5 %}
-          <li>{% if book.url %}<a href="{{ book.url }}" target="_blank">{{ book.title }}</a>{% else %}{{ book.title }}{% endif %} <span class="text-muted">by {{ book.author }}</span></li>
-          {% endfor %}
-          {% if subcat_books.size > 5 %}
-          <li class="text-muted" style="list-style:none; margin-left:-1.25rem; font-size:0.8rem;">+ {{ subcat_books.size | minus: 5 }} more</li>
-          {% endif %}
-        </ul>
-      </div>
-      {% endfor %}
+      -->
     </div>
   </div>
 </section>

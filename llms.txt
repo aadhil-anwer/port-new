@@ -1,0 +1,34 @@
+---
+---
+# Aadhil Anwar
+
+> Security engineer at GoDaddy specializing in network security, vulnerability research, API exploitation, and cloud security on AWS. Reported high-severity vulnerabilities (CVSS 9.1, 8.8, 9.6) in production APIs and university systems. CompTIA Security+, Network+, CySA+, PenTest+ certified. Top 3% on TryHackMe. Based in India.
+
+Aadhil Anwar is a security engineer working in network security at GoDaddy, focused on infrastructure security, access control architecture, and cloud security on AWS. He has reported critical vulnerabilities including broken access control in university APIs (CVSS 9.6), parameter tampering in payment systems, and high-severity API flaws (CVSS 9.1, 8.8) with working proof-of-concept exploits.
+
+Previously interned in network engineering at Lovely Professional University (LPU), where he automated log analysis pipelines, identified network anomalies using Wireshark and Splunk, and refined VLAN segmentation and access controls. As Cybersecurity Lead at the Cisco CyberSec Symposium, he built vulnerable lab environments and trained 2000+ students in IDOR, SSRF, privilege escalation, and API security.
+
+He holds five industry certifications (CompTIA Security+ CE, Network+ CE, CySA+, PenTest+, QuickHeal DFIR), has placed top 5 in multiple national CTFs, and received a 1,00,000 INR startup grant for a privacy-focused blockchain feedback system.
+
+Skills: Web & API Exploitation, Penetration Testing, Vulnerability Research, CVE Discovery & Disclosure, Network Security, SIEM & Log Analysis (Splunk, ELK), Threat Detection & Triage, Security Automation, VLAN/ACL Architecture, Packet Analysis, Cloud Security (AWS), Wireshark, Burp Suite, Nmap, Metasploit, Nessus, Python, Bash, Git.
+
+## Pages
+
+- [Home]({{ site.url }}/): Portfolio homepage with bio, projects, certifications, and achievements
+- [About]({{ site.url }}/about/): Detailed background, skills grid, certifications, and resume
+- [Blog]({{ site.url }}/blog/): Security research, vulnerability writeups, and bug bounty findings
+- [Projects]({{ site.url }}/projects/): Security tools and projects built with Python, Bash, and raw sockets
+- [Bookshelf]({{ site.url }}/bookshelf/): Reading list across security, fiction, philosophy, and literature
+- [Contact]({{ site.url }}/contact/): Contact information and social links
+
+## Blog Posts
+
+- [Buying Rekhta Tickets Worth INR 1499 for Free]({{ site.url }}/blog/hacking-rekhta-tickets-for-free/): Parameter tampering vulnerability in Jashn-e-Rekhta's payment flow where the backend blindly trusted frontend price data
+- [How I Found a Secret Backdoor to a University's News Feed]({{ site.url }}/blog/university-news-backdoor/): Broken access control (CVSS 9.6) in a university's ASP.NET API allowing unauthenticated CRUD on official press releases
+- [I Reverse-Engineered a Live Phishing Operation Targeting My University]({{ site.url }}/blog/hacking-the-hacker-university-phishing/): Traced a credential harvesting campaign from a compromised LPU email to a Telegram C2 bot containing hundreds of stolen accounts across multiple countries
+
+## Social
+
+- [GitHub](https://github.com/aadhil-anwer)
+- [LinkedIn](https://in.linkedin.com/in/aadhilanwer)
+- [X](https://x.com/z3r0din)

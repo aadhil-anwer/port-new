@@ -168,6 +168,46 @@
   category: non-technical
   subcategory: Mystery & Thriller
 
+- title: "Murder on the Orient Express"
+  author: Agatha Christie
+  category: non-technical
+  subcategory: Mystery & Thriller
+
+- title: "The Murder of Roger Ackroyd"
+  author: Agatha Christie
+  category: non-technical
+  subcategory: Mystery & Thriller
+
+- title: "Death on the Nile"
+  author: Agatha Christie
+  category: non-technical
+  subcategory: Mystery & Thriller
+
+- title: "The ABC Murders"
+  author: Agatha Christie
+  category: non-technical
+  subcategory: Mystery & Thriller
+
+- title: "Crooked House"
+  author: Agatha Christie
+  category: non-technical
+  subcategory: Mystery & Thriller
+
+- title: "Five Little Pigs"
+  author: Agatha Christie
+  category: non-technical
+  subcategory: Mystery & Thriller
+
+- title: "Curtain: Poirot's Last Case"
+  author: Agatha Christie
+  category: non-technical
+  subcategory: Mystery & Thriller
+
+- title: "The Pale Horse"
+  author: Agatha Christie
+  category: non-technical
+  subcategory: Mystery & Thriller
+
 - title: "The Godfather"
   author: Mario Puzo
   category: non-technical
@@ -286,3 +326,74 @@
   author: Amish Tripathi
   category: non-technical
   subcategory: Indian Mythology
+
+# --- New additions ---
+
+# Malayalam Literature
+- title: "Dinosaurukalude Kaalam"
+  author: M. Mukundan
+  category: non-technical
+  subcategory: Malayalam Literature
+
+- title: "Kadalkkattu"
+  author: O.V. Vijayan
+  category: non-technical
+  subcategory: Malayalam Literature
+
+- title: "Kadal Theerathu"
+  author: O.V. Vijayan
+  category: non-technical
+  subcategory: Malayalam Literature
+
+# Classic Fiction
+- title: "The Underdog and Other Stories"
+  author: Agatha Christie
+  category: non-technical
+  subcategory: Classic Fiction
+
+- title: "A Thousand Splendid Suns"
+  author: Khaled Hosseini
+  category: non-technical
+  subcategory: Classic Fiction
+
+- title: "Harry Potter and the Chamber of Secrets"
+  author: J.K. Rowling
+  category: non-technical
+  subcategory: Classic Fiction
+
+- title: "Harry Potter and the Prisoner of Azkaban"
+  author: J.K. Rowling
+  category: non-technical
+  subcategory: Classic Fiction
+
+- title: "Harry Potter and the Goblet of Fire"
+  author: J.K. Rowling
+  category: non-technical
+  subcategory: Classic Fiction
+
+- title: "Harry Potter and the Order of the Phoenix"
+  author: J.K. Rowling
+  category: non-technical
+  subcategory: Classic Fiction
+
+- title: "Harry Potter and the Half-Blood Prince"
+  author: J.K. Rowling
+  category: non-technical
+  subcategory: Classic Fiction
+
+- title: "Harry Potter and the Deathly Hallows"
+  author: J.K. Rowling
+  category: non-technical
+  subcategory: Classic Fiction
+
+# Mystery & Thriller
+- title: "Poirot Investigates"
+  author: Agatha Christie
+  category: non-technical
+  subcategory: Mystery & Thriller
+
+# Non-Fiction & Memoir
+- title: "India: From Midnight to the Millennium"
+  author: Shashi Tharoor
+  category: non-technical
+  subcategory: Non-Fiction & Memoir
