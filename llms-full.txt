@@ -58,4 +58,4 @@ Found a live phishing campaign targeting LPU students and staff. The phishing em
 - GitHub: https://github.com/aadhil-anwer
 - LinkedIn: https://in.linkedin.com/in/aadhilanwer
 - X: https://x.com/z3r0din
-- Website: https://aadhilanwar.github.io
+- Website: https://aadhilanwar.dev

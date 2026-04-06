@@ -1,12 +1,12 @@
 title: Aadhil Anwar
 description: "Security engineer specializing in network security, vulnerability research, and API exploitation. Currently at GoDaddy working on infrastructure security, access control architecture, and cloud security on AWS."
-url: "https://aadhilanwar.github.io"
+url: "https://aadhilanwar.dev"
 baseurl: ""
 
 # Author (used by jekyll-seo-tag for JSON-LD Person schema)
 author:
   name: Aadhil Anwar
-  url: "https://aadhilanwar.github.io"
+  url: "https://aadhilanwar.dev"
   twitter: z3r0din
 
 # Social profiles (used by jekyll-seo-tag for sameAs in JSON-LD)

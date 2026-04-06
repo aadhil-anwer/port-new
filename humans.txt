@@ -4,7 +4,7 @@
 Name: Aadhil Anwar
 Role: Security Engineer
 Location: India
-Site: https://aadhilanwar.github.io
+Site: https://aadhilanwar.dev
 X: @z3r0din
 GitHub: aadhil-anwer
 LinkedIn: aadhilanwer
