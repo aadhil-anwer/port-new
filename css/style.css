@@ -303,6 +303,10 @@ strong {
   color: var(--text-primary);
 }
 
+.highlight {
+  color: var(--accent);
+}
+
 .hero-links {
   display: flex;
   gap: 0.5rem;
