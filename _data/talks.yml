@@ -1,0 +1,10 @@
+# Add talks and workshops here.
+
+- title: Cisco CyberSec Symposium
+  description: Hands-on security training covering IDOR, SSRF, privilege escalation, secure development, and API security. Delivered to 2000+ students.
+  # date: 2025
+  # slides: https://link-to-slides.com
+  # video: https://link-to-video.com
+
+# - title: Another Talk
+#   description: What you talked about.

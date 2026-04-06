@@ -1,0 +1,69 @@
+---
+layout: default
+title: About
+description: About Aadhil Anwar — security engineer, network defender, researcher.
+---
+<section class="page-section">
+  <div class="container">
+    <h1 class="page-title">About</h1>
+
+    <div class="about-content prose">
+      <h2>My Story</h2>
+      <p>I'm Aadhil Anwar — a security engineer who started out curious about how systems break and turned that into a career making sure they don't.</p>
+      <p>Currently working in network security at <strong>GoDaddy</strong>, I spend my days thinking about vulnerability research, API security, network defense, and offensive testing. Previously, I was a Network Engineering Intern at <strong>LPU</strong>, where I automated log analysis, hunted network anomalies, and hardened infrastructure.</p>
+      <p>I've reported high-severity CVEs in production APIs, led cybersecurity workshops for 2000+ students, and built servers from raw TCP sockets because I wanted to understand what's actually happening at the wire level.</p>
+
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h4>Offensive</h4>
+          <ul>
+            <li>Web & API Exploitation</li>
+            <li>Penetration Testing</li>
+            <li>Vulnerability Research</li>
+            <li>CTF Competitions</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h4>Defensive</h4>
+          <ul>
+            <li>Network Security</li>
+            <li>SIEM & Log Analysis</li>
+            <li>Incident Response</li>
+            <li>Digital Forensics</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h4>Networking</h4>
+          <ul>
+            <li>VLAN / ACL Configuration</li>
+            <li>Packet Analysis</li>
+            <li>Firewall Management</li>
+            <li>Network Architecture</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h4>Tools</h4>
+          <ul>
+            <li>Wireshark, Burp Suite, Nmap</li>
+            <li>Splunk, ELK Stack</li>
+            <li>Metasploit, SQLMap</li>
+            <li>Python, Bash, Git</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2>Certifications</h2>
+      <div class="cert-list">
+        {% for cert in site.data.certifications %}
+        <span class="cert-badge">{{ cert }}</span>
+        {% endfor %}
+      </div>
+
+      <h2>Resume</h2>
+      <p>
+        <a href="{{ '/assets/resume.pdf' | relative_url }}" class="btn" download>Download Resume (PDF)</a>
+      </p>
+    </div>
+  </div>
+</section>

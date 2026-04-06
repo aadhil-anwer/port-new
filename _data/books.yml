@@ -1,0 +1,11 @@
+# Add books here. Just copy the format below.
+# Categories: "technical" or "non-technical"
+
+- title: "Hacking: The Art of Exploitation"
+  author: Jon Erickson
+  category: technical
+  # url: https://optional-link.com  (uncomment to make it a link)
+
+# - title: "Atomic Habits"
+#   author: James Clear
+#   category: non-technical

@@ -1,0 +1,23 @@
+---
+layout: default
+title: Contact
+description: Get in touch with Aadhil Anwar.
+---
+{% include icons.html %}
+
+<section class="page-section">
+  <div class="container">
+    <h1 class="page-title">Contact</h1>
+    <p class="page-desc">Want to connect? Reach out through any of these.</p>
+
+    <div class="contact-grid">
+      {% for link in site.data.social %}
+      <a href="{{ link.url }}" {% if link.icon != 'email' %}target="_blank" rel="noopener"{% endif %} class="contact-card">
+        <svg class="icon contact-icon-svg"><use href="#icon-{{ link.icon }}"></use></svg>
+        <span class="contact-label">{{ link.name }}</span>
+        <span class="contact-value">{{ link.username }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>

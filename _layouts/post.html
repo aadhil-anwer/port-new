@@ -1,0 +1,28 @@
+---
+layout: default
+---
+<article class="post-full container">
+  <header class="post-header">
+    <div class="post-meta">
+      <time>{{ page.date | date: "%B %d, %Y" }}</time>
+      <span class="meta-sep">&middot;</span>
+      <span>{% assign words = content | number_of_words %}{% if words < 250 %}1{% else %}{{ words | divided_by: 250 }}{% endif %} min read</span>
+      {% if page.tags.size > 0 %}
+      <span class="meta-sep">&middot;</span>
+      {% for tag in page.tags %}
+      <span class="tag">{{ tag }}</span>
+      {% endfor %}
+      {% endif %}
+    </div>
+    <h1>{{ page.title }}</h1>
+    {% if page.description %}
+    <p class="post-subtitle">{{ page.description }}</p>
+    {% endif %}
+  </header>
+  <div class="post-content prose">
+    {{ content }}
+  </div>
+  <footer class="post-footer">
+    <a href="{% if page.type == 'writeup' %}{{ '/writeups' | relative_url }}{% else %}{{ '/blog' | relative_url }}{% endif %}" class="back-link">&larr; Back to {% if page.type == 'writeup' %}writeups{% else %}blog{% endif %}</a>
+  </footer>
+</article>

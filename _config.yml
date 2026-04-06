@@ -1,0 +1,41 @@
+title: Aadhil Anwar
+description: Security engineer. Networks, exploitation, and breaking things.
+url: "https://aadhilanwar.github.io"
+baseurl: ""
+author: Aadhil Anwar
+
+permalink: /blog/:slug/
+
+collections:
+  writeups:
+    output: true
+    permalink: /writeups/:slug/
+
+defaults:
+  - scope:
+      path: "_posts"
+      type: posts
+    values:
+      layout: post
+      type: blog
+  - scope:
+      path: "_writeups"
+      type: writeups
+    values:
+      layout: post
+      type: writeup
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules

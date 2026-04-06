@@ -1,0 +1,181 @@
+---
+layout: default
+title: Home
+---
+{% include icons.html %}
+
+<section class="hero">
+  <div class="container-wide">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <h1 class="hero-name">Hey, I am Aadhil</h1>
+        <h3 class="hero-tagline">security, networks, and breaking things. always learning.</h3>
+        <div class="hero-bio">
+          <p>I'm a security engineer working in network security at <a href="https://godaddy.com" target="_blank">GoDaddy</a>, focused on vulnerability research, API security, network defense, and offensive testing.</p>
+          <p>I've reported high-severity CVEs in production APIs, built vulnerable lab environments for hands-on training, and written servers from raw TCP sockets to understand what's happening at the wire level. Previously at <strong>LPU</strong> as a Network Engineering Intern and <strong>Cybersecurity Lead</strong> at the Cisco CyberSec Symposium, where I delivered workshops to 2000+ students.</p>
+          <p>On the side, I dig into web and API exploitation, read everything I can around systems and security, and share what I learn along the way.</p>
+        </div>
+        <div class="hero-links">
+          {% for link in site.data.social %}
+          <a href="{{ link.url }}" {% if link.icon != 'email' %}target="_blank" rel="noopener"{% endif %} class="social-btn">
+            <svg class="icon"><use href="#icon-{{ link.icon }}"></use></svg>
+            <span>{{ link.name }}</span>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="{{ '/images/headshot.jpg' | relative_url }}" alt="Aadhil Anwar" onerror="this.parentElement.classList.add('no-image')">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-wide">
+    <div class="columns-2">
+      <div class="col">
+        <div class="section-header">
+          <h2>Recent blog posts</h2>
+          <span class="header-dot">&bull;</span>
+          <a href="{{ '/blog' | relative_url }}" class="section-link">Full archive &rarr;</a>
+        </div>
+        <p class="section-desc">Things I have written recently.</p>
+        {% assign posts = site.posts | where: "type", "blog" %}
+        {% if posts.size > 0 %}
+        <ul class="bullet-list">
+          {% for post in posts limit:8 %}
+          <li>
+            <span class="bullet-date">{{ post.date | date: "%b %d, %Y" }}</span>
+            <span class="bullet-sep">:</span>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+        {% else %}
+        <div class="empty-state"><p>Coming soon. Stay tuned.</p></div>
+        {% endif %}
+      </div>
+      <div class="col">
+        <div class="section-header">
+          <h2>Writeups</h2>
+          <span class="header-dot">&bull;</span>
+          <a href="{{ '/writeups' | relative_url }}" class="section-link">Full archive &rarr;</a>
+        </div>
+        <p class="section-desc">Vulnerability writeups and security research.</p>
+        {% if site.writeups.size > 0 %}
+        <ul class="bullet-list">
+          {% for writeup in site.writeups reversed limit:8 %}
+          <li><a href="{{ writeup.url | relative_url }}">{{ writeup.title }}</a></li>
+          {% endfor %}
+        </ul>
+        {% else %}
+        <div class="empty-state"><p>Coming soon. Stay tuned.</p></div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-wide">
+    <div class="section-header">
+      <h2>Bookshelf</h2>
+      <span class="header-dot">&bull;</span>
+      <a href="{{ '/bookshelf' | relative_url }}" class="section-link">View all &rarr;</a>
+    </div>
+    <p class="section-desc">Books I'm reading or have read.</p>
+    {% assign tech_books = site.data.books | where: "category", "technical" %}
+    {% assign nontech_books = site.data.books | where: "category", "non-technical" %}
+    <div class="columns-2">
+      <div class="col">
+        <h3 class="subsection-title">Technical</h3>
+        {% if tech_books.size > 0 %}
+        <ul class="bullet-list">
+          {% for book in tech_books %}
+          <li>{% if book.url %}<a href="{{ book.url }}" target="_blank">{{ book.title }}</a>{% else %}{{ book.title }}{% endif %} <span class="text-muted">by {{ book.author }}</span></li>
+          {% endfor %}
+        </ul>
+        {% else %}
+        <div class="empty-state"><p>Coming soon.</p></div>
+        {% endif %}
+      </div>
+      <div class="col">
+        <h3 class="subsection-title">Non-Technical</h3>
+        {% if nontech_books.size > 0 %}
+        <ul class="bullet-list">
+          {% for book in nontech_books %}
+          <li>{% if book.url %}<a href="{{ book.url }}" target="_blank">{{ book.title }}</a>{% else %}{{ book.title }}{% endif %} <span class="text-muted">by {{ book.author }}</span></li>
+          {% endfor %}
+        </ul>
+        {% else %}
+        <div class="empty-state"><p>Coming soon.</p></div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-wide">
+    <h2 class="section-title">Talks & Workshops</h2>
+    <div class="talks-list">
+      {% for talk in site.data.talks %}
+      <div class="talk-item">
+        <h3>{{ talk.title }}{% if talk.date %} <span class="text-muted">({{ talk.date }})</span>{% endif %}</h3>
+        <p>{{ talk.description }}</p>
+        {% if talk.slides or talk.video %}
+        <div class="talk-links">
+          {% if talk.slides %}<a href="{{ talk.slides }}" target="_blank">Slides</a>{% endif %}
+          {% if talk.video %}<a href="{{ talk.video }}" target="_blank">Video</a>{% endif %}
+        </div>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-wide">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid">
+      {% for project in site.data.projects %}
+      <div class="project-card">
+        <h3>{{ project.name }}</h3>
+        <p>{{ project.description }}</p>
+        <div class="project-tech">
+          {% for t in project.tech %}<span>{{ t }}</span>{% endfor %}
+        </div>
+        {% if project.github %}<a href="{{ project.github }}" target="_blank" rel="noopener" class="project-link">View on GitHub &rarr;</a>{% endif %}
+        {% if project.live %}<a href="{{ project.live }}" target="_blank" rel="noopener" class="project-link">Live Demo &rarr;</a>{% endif %}
+      </div>
+      {% endfor %}
+    </div>
+    <div class="section-more">
+      <a href="{{ '/projects' | relative_url }}">View all projects &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-wide">
+    <h2 class="section-title">Certifications</h2>
+    <div class="cert-list">
+      {% for cert in site.data.certifications %}
+      <span class="cert-badge">{{ cert }}</span>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-wide">
+    <h2 class="section-title">Achievements</h2>
+    <ul class="achievements-list">
+      {% for achievement in site.data.achievements %}
+      <li>{{ achievement }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
