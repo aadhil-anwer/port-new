@@ -1,11 +1,288 @@
-# Add books here. Just copy the format below.
 # Categories: "technical" or "non-technical"
+# Subcategories for grouping within the bookshelf UI
+
+# --- Technical ---
 
 - title: "Hacking: The Art of Exploitation"
   author: Jon Erickson
   category: technical
-  # url: https://optional-link.com  (uncomment to make it a link)
+  subcategory: Security
 
-# - title: "Atomic Habits"
-#   author: James Clear
-#   category: non-technical
+- title: "Attacking Network Protocols"
+  author: James Forshaw
+  category: technical
+  subcategory: Security
+
+- title: "The Web Application Hacker's Handbook"
+  author: Dafydd Stuttard & Marcus Pinto
+  category: technical
+  subcategory: Security
+
+- title: "Practical Malware Analysis"
+  author: Michael Sikorski & Andrew Honig
+  category: technical
+  subcategory: Security
+
+- title: "Black Hat Python"
+  author: Justin Seitz
+  category: technical
+  subcategory: Security
+
+- title: "Python Crash Course"
+  author: Eric Matthes
+  category: technical
+  subcategory: Programming
+
+- title: "The Linux Command Line"
+  author: William Shotts
+  category: technical
+  subcategory: Systems
+
+- title: "Computer Networking: A Top-Down Approach"
+  author: James Kurose & Keith Ross
+  category: technical
+  subcategory: Networking
+
+# --- Non-Technical ---
+
+# Malayalam Literature
+- title: "Khasakkinte Ithihasam"
+  author: O.V. Vijayan
+  category: non-technical
+  subcategory: Malayalam Literature
+
+- title: "Aatujeevitham"
+  author: Benyamin
+  category: non-technical
+  subcategory: Malayalam Literature
+
+- title: "Manjaveyil Maranangal"
+  author: Benyamin
+  category: non-technical
+  subcategory: Malayalam Literature
+
+- title: "Mayyazhippuzhayude Theerangalil"
+  author: M. Mukundan
+  category: non-technical
+  subcategory: Malayalam Literature
+
+- title: "Oru Desathinte Katha"
+  author: S.K. Pottekkatt
+  category: non-technical
+  subcategory: Malayalam Literature
+
+- title: "Premalekhanam"
+  author: Vaikom Muhammad Basheer
+  category: non-technical
+  subcategory: Malayalam Literature
+
+- title: "Mathilukal"
+  author: Vaikom Muhammad Basheer
+  category: non-technical
+  subcategory: Malayalam Literature
+
+- title: "Pathummayude Aadu"
+  author: Vaikom Muhammad Basheer
+  category: non-technical
+  subcategory: Malayalam Literature
+
+- title: "Francis Itty Cora"
+  author: T.D. Ramakrishnan
+  category: non-technical
+  subcategory: Malayalam Literature
+
+- title: "Qabar"
+  author: K.R. Meera
+  category: non-technical
+  subcategory: Malayalam Literature
+
+- title: "Kaikeyi (Padmarajan Short Stories)"
+  author: P. Padmarajan
+  category: non-technical
+  subcategory: Malayalam Literature
+
+- title: "Oru Police Surgeonate Ormakurippukal"
+  author: Dr B. Umadathan
+  category: non-technical
+  subcategory: Malayalam Literature
+
+# Classic Fiction
+- title: "Crime and Punishment"
+  author: Fyodor Dostoevsky
+  category: non-technical
+  subcategory: Classic Fiction
+
+- title: "White Nights"
+  author: Fyodor Dostoyevsky
+  category: non-technical
+  subcategory: Classic Fiction
+
+- title: "1984"
+  author: George Orwell
+  category: non-technical
+  subcategory: Classic Fiction
+
+- title: "Animal Farm"
+  author: George Orwell
+  category: non-technical
+  subcategory: Classic Fiction
+
+- title: "The Great Gatsby"
+  author: F. Scott Fitzgerald
+  category: non-technical
+  subcategory: Classic Fiction
+
+- title: "Wuthering Heights"
+  author: "Emily Bront\xEB"
+  category: non-technical
+  subcategory: Classic Fiction
+
+- title: "The Hitchhiker's Guide to the Galaxy"
+  author: Douglas Adams
+  category: non-technical
+  subcategory: Classic Fiction
+
+- title: "Harry Potter and the Philosopher's Stone"
+  author: J.K. Rowling
+  category: non-technical
+  subcategory: Classic Fiction
+
+# Mystery & Thriller
+- title: "The Complete Sherlock Holmes"
+  author: Arthur Conan Doyle
+  category: non-technical
+  subcategory: Mystery & Thriller
+
+- title: "A Study in Scarlet"
+  author: Arthur Conan Doyle
+  category: non-technical
+  subcategory: Mystery & Thriller
+
+- title: "And Then There Were None"
+  author: Agatha Christie
+  category: non-technical
+  subcategory: Mystery & Thriller
+
+- title: "Lord Edgware Dies"
+  author: Agatha Christie
+  category: non-technical
+  subcategory: Mystery & Thriller
+
+- title: "The Godfather"
+  author: Mario Puzo
+  category: non-technical
+  subcategory: Mystery & Thriller
+
+- title: "Murder at the Mayfair Hotel"
+  author: C.J. Archer
+  category: non-technical
+  subcategory: Mystery & Thriller
+
+- title: "Someone Else's Skin"
+  author: Sarah Hilary
+  category: non-technical
+  subcategory: Mystery & Thriller
+
+# Philosophy & Politics
+- title: "Meditations"
+  author: Marcus Aurelius
+  category: non-technical
+  subcategory: Philosophy & Politics
+
+- title: "The Republic"
+  author: Plato
+  category: non-technical
+  subcategory: Philosophy & Politics
+
+- title: "The Communist Manifesto"
+  author: Karl Marx & Friedrich Engels
+  category: non-technical
+  subcategory: Philosophy & Politics
+
+- title: "Nationalism"
+  author: Rabindranath Tagore
+  category: non-technical
+  subcategory: Philosophy & Politics
+
+- title: "Why I Assassinated Gandhi"
+  author: Nathuram Godse
+  category: non-technical
+  subcategory: Philosophy & Politics
+
+- title: "The Prophet"
+  author: Kahlil Gibran
+  category: non-technical
+  subcategory: Philosophy & Politics
+
+- title: "Mein Kampf"
+  author: Adolf Hitler
+  category: non-technical
+  subcategory: Philosophy & Politics
+
+# Non-Fiction & Memoir
+- title: "Sapiens: A Brief History of Humankind"
+  author: Yuval Noah Harari
+  category: non-technical
+  subcategory: Non-Fiction & Memoir
+
+- title: "Curfewed Night"
+  author: Basharat Peer
+  category: non-technical
+  subcategory: Non-Fiction & Memoir
+
+- title: "The Motorcycle Diaries"
+  author: Ernesto Che Guevara
+  category: non-technical
+  subcategory: Non-Fiction & Memoir
+
+- title: "The Theory of Everything"
+  author: Stephen Hawking
+  category: non-technical
+  subcategory: Non-Fiction & Memoir
+
+# Self-Help
+- title: "How to Win Friends & Influence People"
+  author: Dale Carnegie
+  category: non-technical
+  subcategory: Self-Help
+
+- title: "The Power of Your Subconscious Mind"
+  author: Joseph Murphy
+  category: non-technical
+  subcategory: Self-Help
+
+- title: "Think Like a Monk"
+  author: Jay Shetty
+  category: non-technical
+  subcategory: Self-Help
+
+- title: "The Monk Who Sold His Ferrari"
+  author: Robin Sharma
+  category: non-technical
+  subcategory: Self-Help
+
+- title: "The Alchemist"
+  author: Paulo Coelho
+  category: non-technical
+  subcategory: Self-Help
+
+- title: "Veronika Decides to Die"
+  author: Paulo Coelho
+  category: non-technical
+  subcategory: Self-Help
+
+# Indian Mythology
+- title: "Ram: Scion of Ikshvaku"
+  author: Amish Tripathi
+  category: non-technical
+  subcategory: Indian Mythology
+
+- title: "Sita: Warrior of Mithila"
+  author: Amish Tripathi
+  category: non-technical
+  subcategory: Indian Mythology
+
+- title: "Raavan: Enemy of Aryavarta"
+  author: Amish Tripathi
+  category: non-technical
+  subcategory: Indian Mythology

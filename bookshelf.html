@@ -10,36 +10,75 @@ description: Books I'm reading or have read.
 
     {% assign tech_books = site.data.books | where: "category", "technical" %}
     {% assign nontech_books = site.data.books | where: "category", "non-technical" %}
+    {% assign total = site.data.books | size %}
 
-    <div class="columns-2">
-      <div class="col">
-        <div class="bookshelf-section">
-          <h2>Technical</h2>
-          {% if tech_books.size > 0 %}
-          <ul class="bullet-list">
-            {% for book in tech_books %}
-            <li>{% if book.url %}<a href="{{ book.url }}" target="_blank">{{ book.title }}</a>{% else %}{{ book.title }}{% endif %} <span class="text-muted">by {{ book.author }}</span></li>
-            {% endfor %}
-          </ul>
-          {% else %}
-          <div class="empty-state"><p>Coming soon.</p></div>
-          {% endif %}
+    <!-- Category Tabs -->
+    <div class="bookshelf-tabs">
+      <button class="bookshelf-tab active" data-filter="all">All <span class="tab-count">{{ total }}</span></button>
+      <button class="bookshelf-tab" data-filter="technical">Technical <span class="tab-count">{{ tech_books.size }}</span></button>
+      <button class="bookshelf-tab" data-filter="non-technical">Non-Technical <span class="tab-count">{{ nontech_books.size }}</span></button>
+    </div>
+
+    <!-- Technical Section -->
+    <div class="bookshelf-category" data-category="technical">
+      {% assign tech_subcats = tech_books | map: "subcategory" | uniq %}
+      {% for subcat in tech_subcats %}
+      <div class="bookshelf-group">
+        <h3 class="bookshelf-group-title">{{ subcat }}</h3>
+        <div class="bookshelf-grid">
+          {% assign subcat_books = tech_books | where: "subcategory", subcat %}
+          {% for book in subcat_books %}
+          <div class="book-card">
+            <div class="book-spine"></div>
+            <div class="book-details">
+              <h4 class="book-title">{% if book.url %}<a href="{{ book.url }}" target="_blank">{{ book.title }}</a>{% else %}{{ book.title }}{% endif %}</h4>
+              <span class="book-author">{{ book.author }}</span>
+            </div>
+          </div>
+          {% endfor %}
         </div>
       </div>
-      <div class="col">
-        <div class="bookshelf-section">
-          <h2>Non-Technical</h2>
-          {% if nontech_books.size > 0 %}
-          <ul class="bullet-list">
-            {% for book in nontech_books %}
-            <li>{% if book.url %}<a href="{{ book.url }}" target="_blank">{{ book.title }}</a>{% else %}{{ book.title }}{% endif %} <span class="text-muted">by {{ book.author }}</span></li>
-            {% endfor %}
-          </ul>
-          {% else %}
-          <div class="empty-state"><p>Coming soon.</p></div>
-          {% endif %}
+      {% endfor %}
+    </div>
+
+    <!-- Non-Technical Section -->
+    <div class="bookshelf-category" data-category="non-technical">
+      {% assign nontech_subcats = nontech_books | map: "subcategory" | uniq %}
+      {% for subcat in nontech_subcats %}
+      <div class="bookshelf-group">
+        <h3 class="bookshelf-group-title">{{ subcat }}</h3>
+        <div class="bookshelf-grid">
+          {% assign subcat_books = nontech_books | where: "subcategory", subcat %}
+          {% for book in subcat_books %}
+          <div class="book-card">
+            <div class="book-spine"></div>
+            <div class="book-details">
+              <h4 class="book-title">{% if book.url %}<a href="{{ book.url }}" target="_blank">{{ book.title }}</a>{% else %}{{ book.title }}{% endif %}</h4>
+              <span class="book-author">{{ book.author }}</span>
+            </div>
+          </div>
+          {% endfor %}
         </div>
       </div>
+      {% endfor %}
     </div>
   </div>
 </section>
+
+<script>
+  document.querySelectorAll('.bookshelf-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.bookshelf-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      const filter = tab.dataset.filter;
+      document.querySelectorAll('.bookshelf-category').forEach(cat => {
+        if (filter === 'all') {
+          cat.style.display = '';
+        } else {
+          cat.style.display = cat.dataset.category === filter ? '' : 'none';
+        }
+      });
+    });
+  });
+</script>

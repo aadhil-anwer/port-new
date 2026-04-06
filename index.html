@@ -11,8 +11,9 @@ title: Home
         <h1 class="hero-name">Aadhil Anwar</h1>
         <h3 class="hero-tagline">Security engineer. Breaking things to make them safer.</h3>
         <div class="hero-bio">
-          <p>I work in <span class="highlight">network security</span> at <a href="https://godaddy.com" target="_blank" class="highlight">GoDaddy</a>, focused on vulnerability research, API security, and offensive testing. I've reported high-severity CVEs (CVSS 9.1+) in production APIs and built systems from raw TCP sockets to understand what happens at the wire level.</p>
-          <p>My background spans a <span class="highlight">Network Engineering Intern</span> role, security operations, and hands-on training — including <span class="highlight">Cybersecurity Lead</span> at the Cisco CyberSec Symposium, delivering workshops to 2,000+ students. I keep learning by competing in CTFs, building tooling, and writing about what I find.</p>
+          <p>I'm a <span class="highlight">security engineer</span> working in <span class="highlight">network security</span> at <a href="https://godaddy.com" target="_blank" class="highlight">GoDaddy</a> — infrastructure security, access control architecture, and cloud security on <span class="highlight">AWS</span>. I spend my days thinking about how networks break and how to make sure they don't.</p>
+          <p>I've reported high-severity vulnerabilities (<span class="highlight">CVSS 9.1, 8.8</span>) in production APIs, designed ACL and VLAN segmentation policies for production environments, and integrated security into <span class="highlight">DevSecOps</span> workflows. I like going deep — understanding systems at the level where the actual problems live.</p>
+          <p>Outside of work, I spend time on security research, building tools, and testing attack surfaces. I share what I learn along the way.</p>
         </div>
         <div class="hero-links">
           {% for link in site.data.social %}
@@ -84,33 +85,22 @@ title: Home
       <a href="{{ '/bookshelf' | relative_url }}" class="section-link">View all &rarr;</a>
     </div>
     <p class="section-desc">Books I'm reading or have read.</p>
-    {% assign tech_books = site.data.books | where: "category", "technical" %}
-    {% assign nontech_books = site.data.books | where: "category", "non-technical" %}
+    {% assign all_subcats = site.data.books | map: "subcategory" | uniq %}
     <div class="columns-2">
+      {% for subcat in all_subcats %}
+      {% assign subcat_books = site.data.books | where: "subcategory", subcat %}
       <div class="col">
-        <h3 class="subsection-title">Technical</h3>
-        {% if tech_books.size > 0 %}
+        <h3 class="subsection-title">{{ subcat }}</h3>
         <ul class="bullet-list">
-          {% for book in tech_books %}
+          {% for book in subcat_books limit:5 %}
           <li>{% if book.url %}<a href="{{ book.url }}" target="_blank">{{ book.title }}</a>{% else %}{{ book.title }}{% endif %} <span class="text-muted">by {{ book.author }}</span></li>
           {% endfor %}
+          {% if subcat_books.size > 5 %}
+          <li class="text-muted" style="list-style:none; margin-left:-1.25rem; font-size:0.8rem;">+ {{ subcat_books.size | minus: 5 }} more</li>
+          {% endif %}
         </ul>
-        {% else %}
-        <div class="empty-state"><p>Coming soon.</p></div>
-        {% endif %}
       </div>
-      <div class="col">
-        <h3 class="subsection-title">Non-Technical</h3>
-        {% if nontech_books.size > 0 %}
-        <ul class="bullet-list">
-          {% for book in nontech_books %}
-          <li>{% if book.url %}<a href="{{ book.url }}" target="_blank">{{ book.title }}</a>{% else %}{{ book.title }}{% endif %} <span class="text-muted">by {{ book.author }}</span></li>
-          {% endfor %}
-        </ul>
-        {% else %}
-        <div class="empty-state"><p>Coming soon.</p></div>
-        {% endif %}
-      </div>
+      {% endfor %}
     </div>
   </div>
 </section>
