@@ -4,10 +4,102 @@ title: "404"
 description: "Page not found - Aadhil Anwar"
 permalink: /404.html
 ---
-<section class="page-section">
+<section class="page-section error-page">
   <div class="container">
-    <h1 class="page-title">404</h1>
-    <p class="page-desc">Page not found. h</p>
-    <p><a href="{{ '/' | relative_url }}">Back to home</a></p>
+    <div class="error-glitch" data-text="404">404</div>
+    <p class="error-msg">You've hit a dead endpoint.</p>
+    <p class="error-sub">The page you're looking for doesn't exist, was moved, or you don't have access.</p>
+    <a href="{{ '/' | relative_url }}" class="btn">Back to home</a>
   </div>
 </section>
+
+<style>
+.error-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+}
+
+.error-glitch {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(6rem, 15vw, 12rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  position: relative;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+  animation: glitch-shift 3s infinite;
+}
+
+.error-glitch::before,
+.error-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.error-glitch::before {
+  color: var(--accent);
+  animation: glitch-1 2s infinite linear alternate-reverse;
+  clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+}
+
+.error-glitch::after {
+  color: var(--link);
+  animation: glitch-2 2s infinite linear alternate-reverse;
+  clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+}
+
+.error-msg {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.error-sub {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@keyframes glitch-1 {
+  0%, 90% { transform: translate(0); }
+  92% { transform: translate(-3px, 1px); }
+  94% { transform: translate(3px, -1px); }
+  96% { transform: translate(-2px, 2px); }
+  98% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes glitch-2 {
+  0%, 88% { transform: translate(0); }
+  90% { transform: translate(3px, 2px); }
+  93% { transform: translate(-3px, -1px); }
+  96% { transform: translate(2px, 1px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes glitch-shift {
+  0%, 85%, 100% { text-shadow: none; }
+  87% { text-shadow: -3px 0 var(--accent), 3px 0 var(--link); }
+  90% { text-shadow: 3px 0 var(--accent), -3px 0 var(--link); }
+  92% { text-shadow: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .error-glitch,
+  .error-glitch::before,
+  .error-glitch::after {
+    animation: none;
+  }
+}
+</style>

@@ -147,26 +147,6 @@ description: "Aadhil Anwar - Security engineer at GoDaddy specializing in networ
 
 <section class="section">
   <div class="container-wide">
-    <h2 class="section-title">Talks & Workshops</h2>
-    <div class="talks-list">
-      {% for talk in site.data.talks %}
-      <div class="talk-item">
-        <h3>{{ talk.title }}{% if talk.date %} <span class="text-muted">({{ talk.date }})</span>{% endif %}</h3>
-        <p>{{ talk.description }}</p>
-        {% if talk.slides or talk.video %}
-        <div class="talk-links">
-          {% if talk.slides %}<a href="{{ talk.slides }}" target="_blank">Slides</a>{% endif %}
-          {% if talk.video %}<a href="{{ talk.video }}" target="_blank">Video</a>{% endif %}
-        </div>
-        {% endif %}
-      </div>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container-wide">
     <h2 class="section-title">Projects</h2>
     <div class="projects-grid">
       {% for project in site.data.projects %}
