@@ -16,6 +16,24 @@ description: "Aadhil Anwar - security engineer at GoDaddy. Background in network
       <p>I hold five industry certifications, have placed top 5 in multiple national CTFs, and sit in the top 3% on TryHackMe across 120+ labs. I received a <strong>&#x20B9;1,00,000 startup grant</strong> for a privacy-focused blockchain feedback system.</p>
       <p>I'm currently building in public, writing about what I learn, and going deeper into vulnerability research and offensive security.</p>
 
+      <h2>Certifications</h2>
+      <div class="cert-grid">
+        {% for cert in site.data.certifications %}
+        {% if cert.name %}
+        <div class="cert-card">
+          <div class="cert-card-img">
+            <img src="{{ '/images/' | append: cert.image | relative_url }}" alt="{{ cert.name }}" loading="lazy">
+          </div>
+          <div class="cert-card-name">{{ cert.name }}</div>
+        </div>
+        {% else %}
+        <div class="cert-card">
+          <div class="cert-card-name">{{ cert }}</div>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+
       <h2>Skills</h2>
       <div class="skills-grid">
         <div class="skill-group">
@@ -54,13 +72,6 @@ description: "Aadhil Anwar - security engineer at GoDaddy. Background in network
             <li>Python, Bash, Git</li>
           </ul>
         </div>
-      </div>
-
-      <h2>Certifications</h2>
-      <div class="cert-list">
-        {% for cert in site.data.certifications %}
-        <span class="cert-badge">{{ cert }}</span>
-        {% endfor %}
       </div>
 
       <h2>Resume</h2>

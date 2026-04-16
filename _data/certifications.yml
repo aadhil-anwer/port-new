@@ -1,7 +1,11 @@
 # Add certifications here.
+# Each entry: name + image (place files in /images/)
 
-- CompTIA Security+ CE
-- CompTIA Network+ CE
-- CompTIA CySA+
-- CompTIA PenTest+
-- QuickHeal DFIR
+- name: CompTIA Security+ CE
+  image: security.jpeg
+- name: CompTIA Network+ CE
+  image: network.jpeg
+- name: CompTIA CySA+
+  image: pentest.jpeg
+- name: CompTIA PenTest+
+  image: pentest.jpeg
