@@ -74,12 +74,13 @@ description: "Aadhil Anwar - Security engineer at GoDaddy specializing in networ
   <div class="container-wide">
     <div class="hero-grid">
       <div class="hero-content">
+        <p class="hero-kicker">Network Security &middot; GoDaddy</p>
         <h1 class="hero-name">Aadhil Anwar</h1>
-        <h3 class="hero-tagline">Security engineer. Breaking things to make them safer.</h3>
+        <h3 class="hero-tagline">Security engineer working on network and cloud infrastructure.</h3>
         <div class="hero-bio">
-          <p>I'm a <span class="highlight">security engineer</span> working in <span class="highlight">network security</span> at <a href="https://godaddy.com" target="_blank" class="highlight">GoDaddy</a> — infrastructure security, access control architecture, and cloud security on <span class="highlight">AWS</span>. I spend my days thinking about how networks break and how to make sure they don't.</p>
-          <p>I've reported high-severity vulnerabilities (<span class="highlight">CVSS 9.1, 8.8</span>) in production APIs, designed ACL and VLAN segmentation policies for production environments, and integrated security into <span class="highlight">DevSecOps</span> workflows. I like going deep — understanding systems at the level where the actual problems live.</p>
-          <p>Outside of work, I spend time on security research, building tools, and testing attack surfaces. I share what I learn along the way.</p>
+          <p>I work in network security at <a href="https://godaddy.com" target="_blank">GoDaddy</a>: infrastructure security, access control architecture, and cloud security on AWS. Day to day that means segmentation and ACL design, and making sure controls still hold as the environment changes.</p>
+          <p>Before this I spent time on the offensive side, reporting high-severity vulnerabilities in production APIs. Most traced back to ordinary causes: trust placed in the client, access checks in the wrong place. That experience informs how I approach defense.</p>
+          <p>I write here about networks, security, and what I'm learning along the way.</p>
         </div>
         <div class="hero-links">
           {% for link in site.data.social %}
@@ -106,7 +107,7 @@ description: "Aadhil Anwar - Security engineer at GoDaddy specializing in networ
           <span class="header-dot">&bull;</span>
           <a href="{{ '/blog' | relative_url }}" class="section-link">Full archive &rarr;</a>
         </div>
-        <p class="section-desc">Things I have written recently.</p>
+        <p class="section-desc">Notes on networks, security, and systems.</p>
         {% assign posts = site.posts | where: "type", "blog" %}
         {% if posts.size > 0 %}
         <ul class="bullet-list">
@@ -147,44 +148,6 @@ description: "Aadhil Anwar - Security engineer at GoDaddy specializing in networ
 
 <section class="section">
   <div class="container-wide">
-    <h2 class="section-title">Projects</h2>
-    <div class="projects-grid">
-      {% for project in site.data.projects %}
-      <div class="project-card">
-        <h3>{{ project.name }}</h3>
-        <p>{{ project.description }}</p>
-        <div class="project-tech">
-          {% for t in project.tech %}<span>{{ t }}</span>{% endfor %}
-        </div>
-        {% if project.github %}<a href="{{ project.github }}" target="_blank" rel="noopener" class="project-link">View on GitHub &rarr;</a>{% endif %}
-        {% if project.live %}<a href="{{ project.live }}" target="_blank" rel="noopener" class="project-link">Live Demo &rarr;</a>{% endif %}
-      </div>
-      {% endfor %}
-    </div>
-    <div class="section-more">
-      <a href="{{ '/projects' | relative_url }}">View all projects &rarr;</a>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container-wide">
-    <h2 class="section-title">Certifications</h2>
-    <div class="cert-list">
-      {% for cert in site.data.certifications %}
-      <span class="cert-badge">{{ cert }}</span>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container-wide">
-    <h2 class="section-title">Achievements</h2>
-    <ul class="achievements-list">
-      {% for achievement in site.data.achievements %}
-      <li>{{ achievement }}</li>
-      {% endfor %}
-    </ul>
+    <p class="section-aside">Certifications, background, and the longer version are on the <a href="{{ '/about' | relative_url }}">about page</a>.</p>
   </div>
 </section>

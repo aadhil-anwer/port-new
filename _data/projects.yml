@@ -1,7 +1,7 @@
 # Add projects here. Just copy the format below.
 
 - name: Low-Level HTTP/1.1 Server
-  description: Built an HTTP/1.1 server in Python using raw TCP sockets. Request parsing, chunked transfer encoding, input validation, error handling — all from scratch.
+  description: An HTTP/1.1 server in Python on raw TCP sockets, no frameworks. Request parsing, chunked transfer encoding, input validation, and error handling, written to understand what the spec guarantees and what implementations actually do.
   tech:
     - Python
     - TCP Sockets
