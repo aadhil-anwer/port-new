@@ -28,6 +28,11 @@
   category: technical
   subcategory: Security
 
+- title: "Zero Trust Networks"
+  author: Evan Gilman & Doug Barth
+  category: technical
+  subcategory: Security
+
 - title: "Python Crash Course"
   author: Eric Matthes
   category: technical
