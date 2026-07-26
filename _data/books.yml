@@ -413,3 +413,56 @@
   author: Satoshi Yagisawa
   category: non-technical
   subcategory: Classic Fiction
+
+- title: "Kabuliwala"
+  author: Rabindranath Tagore
+  category: non-technical
+  subcategory: Classic Fiction
+
+- title: "The Hungry Stones"
+  author: Rabindranath Tagore
+  category: non-technical
+  subcategory: Classic Fiction
+
+# Mystery & Thriller
+- title: "Murder is Easy"
+  author: Agatha Christie
+  category: non-technical
+  subcategory: Mystery & Thriller
+
+- title: "The Lamp"
+  author: Agatha Christie
+  category: non-technical
+  subcategory: Mystery & Thriller
+
+- title: "7 Christmas Cards"
+  author: Arthur Conan Doyle
+  category: non-technical
+  subcategory: Mystery & Thriller
+
+# Malayalam Literature
+- title: "Arappatta Kettiya Gramathil"
+  author: Vinoy Thomas
+  category: non-technical
+  subcategory: Malayalam Literature
+
+- title: "Palam Apakadathil: Panchavadipalam"
+  author: V.K.N.
+  category: non-technical
+  subcategory: Malayalam Literature
+
+- title: "Thara Specials"
+  author: Vaikom Muhammad Basheer
+  category: non-technical
+  subcategory: Malayalam Literature
+
+- title: "Pavappettavarude Veshya"
+  author: Vaikom Muhammad Basheer
+  category: non-technical
+  subcategory: Malayalam Literature
+
+# Classic Fiction
+- title: "One Day in the Life of Ivan Denisovich"
+  author: Aleksandr Solzhenitsyn
+  category: non-technical
+  subcategory: Classic Fiction
