@@ -25,7 +25,6 @@ Skills: Web & API Exploitation, Penetration Testing, Vulnerability Research, Bug
 - [Projects]({{ site.url }}/projects/): Security tools and projects built with Python, Bash, and raw sockets
 - [Bookshelf]({{ site.url }}/bookshelf/): Reading list of {{ site.data.books | size }} books across security, networking, Malayalam literature, classic fiction, philosophy, and mystery
 - [Contact]({{ site.url }}/contact/): Contact information and social links
-- [Full content]({{ site.url }}/llms-full.txt): Complete site content in one file
 
 ## Blog Posts
 {% for post in site.posts %}
