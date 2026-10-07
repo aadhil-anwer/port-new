@@ -1,0 +1,516 @@
+[
+  {
+    "command": [
+      "ip",
+      "link",
+      "add",
+      "underlay",
+      "type",
+      "veth",
+      "peer",
+      "name",
+      "sender"
+    ],
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "ip",
+      "link",
+      "set",
+      "sender",
+      "netns",
+      "466740"
+    ],
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "ip",
+      "addr",
+      "add",
+      "192.0.2.1/24",
+      "dev",
+      "underlay"
+    ],
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "ip",
+      "link",
+      "set",
+      "underlay",
+      "up"
+    ],
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "ip",
+      "link",
+      "set",
+      "lo",
+      "up"
+    ],
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "nsenter",
+      "-t",
+      "466740",
+      "-n",
+      "ip",
+      "addr",
+      "add",
+      "192.0.2.2/24",
+      "dev",
+      "sender"
+    ],
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "nsenter",
+      "-t",
+      "466740",
+      "-n",
+      "ip",
+      "link",
+      "set",
+      "sender",
+      "up"
+    ],
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "nsenter",
+      "-t",
+      "466740",
+      "-n",
+      "ip",
+      "link",
+      "set",
+      "lo",
+      "up"
+    ],
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "ip",
+      "link",
+      "add",
+      "vx5000",
+      "type",
+      "vxlan",
+      "id",
+      "5000",
+      "local",
+      "192.0.2.1",
+      "dev",
+      "underlay",
+      "dstport",
+      "4789"
+    ],
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "ip",
+      "link",
+      "set",
+      "vx5000",
+      "up"
+    ],
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "ip",
+      "link",
+      "add",
+      "link",
+      "underlay",
+      "name",
+      "vlan20",
+      "type",
+      "vlan",
+      "id",
+      "20"
+    ],
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "ip",
+      "link",
+      "set",
+      "vlan20",
+      "up"
+    ],
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "nsenter",
+      "-t",
+      "466740",
+      "-n",
+      "/usr/bin/python3",
+      "-c",
+      "import socket; s=socket.socket(socket.AF_INET,socket.SOCK_DGRAM); s.sendto(bytes.fromhex('0800000000138800ffffffffffff02000000000288b54c41422d76786c616e2d636f6e666967757265642d766e69'),('192.0.2.1',4789))"
+    ],
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "bridge",
+      "fdb",
+      "show",
+      "dev",
+      "vx5000"
+    ],
+    "stdout": "02:00:00:00:00:02 dst 192.0.2.2 self \n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "nsenter",
+      "-t",
+      "466740",
+      "-n",
+      "/usr/bin/python3",
+      "-c",
+      "import socket; s=socket.socket(socket.AF_INET,socket.SOCK_DGRAM); s.sendto(bytes.fromhex('0800000000138900ffffffffffff02000000000288b54c41422d76786c616e2d756e6b6e6f776e2d766e69'),('192.0.2.1',4789))"
+    ],
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "bridge",
+      "fdb",
+      "show",
+      "dev",
+      "vx5000"
+    ],
+    "stdout": "02:00:00:00:00:02 dst 192.0.2.2 self \n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "nft",
+      "-f",
+      "-"
+    ],
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "nsenter",
+      "-t",
+      "466740",
+      "-n",
+      "/usr/bin/python3",
+      "-c",
+      "import socket; s=socket.socket(socket.AF_INET,socket.SOCK_DGRAM); s.sendto(bytes.fromhex('0800000000138800ffffffffffff02000000000288b54c41422d76786c616e2d736f757263652d626c6f636b6564'),('192.0.2.1',4789))"
+    ],
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "bridge",
+      "fdb",
+      "show",
+      "dev",
+      "vx5000"
+    ],
+    "stdout": "02:00:00:00:00:02 dst 192.0.2.2 self \n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "nft",
+      "list",
+      "table",
+      "inet",
+      "lab"
+    ],
+    "stdout": "table inet lab {\n\tchain input {\n\t\ttype filter hook input priority filter; policy accept;\n\t\tip saddr 192.0.2.2 udp dport 4789 counter packets 1 bytes 74 drop\n\t}\n}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "nft",
+      "delete",
+      "table",
+      "inet",
+      "lab"
+    ],
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "nsenter",
+      "-t",
+      "466740",
+      "-n",
+      "/usr/bin/python3",
+      "-c",
+      "import socket; s=socket.socket(socket.AF_INET,socket.SOCK_DGRAM); s.sendto(bytes.fromhex('0800000000138800ffffffffffff02000000000288b54c41422d76786c616e2d66696c7465722d72656d6f766564'),('192.0.2.1',4789))"
+    ],
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "bridge",
+      "fdb",
+      "show",
+      "dev",
+      "vx5000"
+    ],
+    "stdout": "02:00:00:00:00:02 dst 192.0.2.2 self \n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "ip",
+      "link",
+      "set",
+      "vx5000",
+      "type",
+      "vxlan",
+      "nolearning"
+    ],
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "nsenter",
+      "-t",
+      "466740",
+      "-n",
+      "/usr/bin/python3",
+      "-c",
+      "import socket; s=socket.socket(socket.AF_INET,socket.SOCK_DGRAM); s.sendto(bytes.fromhex('0800000000138800ffffffffffff02000000000388b54c41422d76786c616e2d6e6f6c6561726e696e67'),('192.0.2.1',4789))"
+    ],
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "bridge",
+      "fdb",
+      "show",
+      "dev",
+      "vx5000"
+    ],
+    "stdout": "02:00:00:00:00:02 dst 192.0.2.2 self \n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "ip",
+      "-j",
+      "link",
+      "show",
+      "underlay"
+    ],
+    "stdout": "[{\"ifindex\":3,\"link_index\":2,\"ifname\":\"underlay\",\"flags\":[\"BROADCAST\",\"MULTICAST\",\"UP\",\"LOWER_UP\"],\"mtu\":1500,\"qdisc\":\"noqueue\",\"operstate\":\"UP\",\"linkmode\":\"DEFAULT\",\"group\":\"default\",\"txqlen\":1000,\"link_type\":\"ether\",\"address\":\"32:12:43:04:c4:06\",\"broadcast\":\"ff:ff:ff:ff:ff:ff\",\"link_netnsid\":0}]\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "nsenter",
+      "-t",
+      "466740",
+      "-n",
+      "/usr/bin/python3",
+      "-c",
+      "import socket; s=socket.socket(socket.AF_PACKET,socket.SOCK_RAW); s.bind(('sender',0)); s.send(bytes.fromhex('32124304c4060200000000028100001488b54c41422d766c616e32302d746167'))"
+    ],
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "bridge",
+      "fdb",
+      "show",
+      "dev",
+      "vx5000"
+    ],
+    "stdout": "02:00:00:00:00:02 dst 192.0.2.2 self \n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "ip",
+      "-j",
+      "link",
+      "show",
+      "underlay"
+    ],
+    "stdout": "[{\"ifindex\":3,\"link_index\":2,\"ifname\":\"underlay\",\"flags\":[\"BROADCAST\",\"MULTICAST\",\"UP\",\"LOWER_UP\"],\"mtu\":1500,\"qdisc\":\"noqueue\",\"operstate\":\"UP\",\"linkmode\":\"DEFAULT\",\"group\":\"default\",\"txqlen\":1000,\"link_type\":\"ether\",\"address\":\"32:12:43:04:c4:06\",\"broadcast\":\"ff:ff:ff:ff:ff:ff\",\"link_netnsid\":0}]\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "nsenter",
+      "-t",
+      "466740",
+      "-n",
+      "/usr/bin/python3",
+      "-c",
+      "import socket; s=socket.socket(socket.AF_PACKET,socket.SOCK_RAW); s.bind(('sender',0)); s.send(bytes.fromhex('32124304c4060200000000028100001e88b54c41422d766c616e33302d746167'))"
+    ],
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "bridge",
+      "fdb",
+      "show",
+      "dev",
+      "vx5000"
+    ],
+    "stdout": "02:00:00:00:00:02 dst 192.0.2.2 self \n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "ip",
+      "-j",
+      "link",
+      "show",
+      "underlay"
+    ],
+    "stdout": "[{\"ifindex\":3,\"link_index\":2,\"ifname\":\"underlay\",\"flags\":[\"BROADCAST\",\"MULTICAST\",\"UP\",\"LOWER_UP\"],\"mtu\":1500,\"qdisc\":\"noqueue\",\"operstate\":\"UP\",\"linkmode\":\"DEFAULT\",\"group\":\"default\",\"txqlen\":1000,\"link_type\":\"ether\",\"address\":\"32:12:43:04:c4:06\",\"broadcast\":\"ff:ff:ff:ff:ff:ff\",\"link_netnsid\":0}]\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "nsenter",
+      "-t",
+      "466740",
+      "-n",
+      "/usr/bin/python3",
+      "-c",
+      "import socket; s=socket.socket(socket.AF_PACKET,socket.SOCK_RAW); s.bind(('sender',0)); s.send(bytes.fromhex('32124304c4060200000000028100000088b54c41422d766c616e302d6f6e6c79'))"
+    ],
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "bridge",
+      "fdb",
+      "show",
+      "dev",
+      "vx5000"
+    ],
+    "stdout": "02:00:00:00:00:02 dst 192.0.2.2 self \n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "ip",
+      "-j",
+      "link",
+      "show",
+      "underlay"
+    ],
+    "stdout": "[{\"ifindex\":3,\"link_index\":2,\"ifname\":\"underlay\",\"flags\":[\"BROADCAST\",\"MULTICAST\",\"UP\",\"LOWER_UP\"],\"mtu\":1500,\"qdisc\":\"noqueue\",\"operstate\":\"UP\",\"linkmode\":\"DEFAULT\",\"group\":\"default\",\"txqlen\":1000,\"link_type\":\"ether\",\"address\":\"32:12:43:04:c4:06\",\"broadcast\":\"ff:ff:ff:ff:ff:ff\",\"link_netnsid\":0}]\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "nsenter",
+      "-t",
+      "466740",
+      "-n",
+      "/usr/bin/python3",
+      "-c",
+      "import socket; s=socket.socket(socket.AF_PACKET,socket.SOCK_RAW); s.bind(('sender',0)); s.send(bytes.fromhex('32124304c406020000000002810000008100001488b54c41422d766c616e302d7468656e3230'))"
+    ],
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "bridge",
+      "fdb",
+      "show",
+      "dev",
+      "vx5000"
+    ],
+    "stdout": "02:00:00:00:00:02 dst 192.0.2.2 self \n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "ip",
+      "-Version"
+    ],
+    "stdout": "ip utility, iproute2-6.1.0, libbpf 1.3.0\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "nft",
+      "--version"
+    ],
+    "stdout": "nftables v1.0.9 (Old Doc Yak #3)\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "date",
+      "-u",
+      "+%FT%TZ"
+    ],
+    "stdout": "2026-10-07T19:17:39Z\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "ip",
+      "route"
+    ],
+    "stdout": "192.0.2.0/24 dev underlay proto kernel scope link src 192.0.2.1 \n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "ip",
+      "-d",
+      "link",
+      "show",
+      "vx5000"
+    ],
+    "stdout": "4: vx5000: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1450 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000\n    link/ether 2e:56:59:3a:5a:55 brd ff:ff:ff:ff:ff:ff promiscuity 0  allmulti 0 minmtu 68 maxmtu 65535 \n    vxlan id 5000 fan-map local 192.0.2.1 dev underlay srcport 0 0 dstport 4789 nolearning ttl auto ageing 300 udpcsum noudp6zerocsumtx noudp6zerocsumrx addrgenmode eui64 numtxqueues 1 numrxqueues 1 gso_max_size 65536 gso_max_segs 65535 tso_max_size 524280 tso_max_segs 65535 gro_max_size 65536 \n",
+    "stderr": "info: Using default fan map value (33)\n"
+  }
+]
