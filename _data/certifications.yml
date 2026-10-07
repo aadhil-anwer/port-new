@@ -6,6 +6,6 @@
 - name: CompTIA Network+ CE
   image: network.jpeg
 - name: CompTIA CySA+
-  image: pentest.jpeg
+  image: cysa.jpeg
 - name: CompTIA PenTest+
   image: pentest.jpeg
