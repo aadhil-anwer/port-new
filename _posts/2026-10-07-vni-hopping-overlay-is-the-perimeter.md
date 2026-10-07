@@ -1,16 +1,18 @@
 ---
 title: "VNI Hopping: VLAN Hopping Grew Up and Moved to the Data Center"
-description: "VXLAN and Geneve rebuilt the VLAN as a 24-bit tag inside a UDP packet with no authentication by design. One packet to UDP/4789 on a VTEP injects a frame into any tenant you name."
+description: "VXLAN and Geneve rebuilt the VLAN as a 24-bit tag inside a UDP packet with no authentication by design. One packet to UDP/4789 on a VTEP drops a frame into any tenant you name."
 date: 2026-10-07
 tags: [infrasec, network-security, vxlan, geneve, overlay, cloud]
 type: blog
 ---
 
-L2 adjacency isn't a security boundary. Nowhere does ignoring that cost more than in the overlays every data center and Kubernetes cluster now runs on. VXLAN and Geneve took the VLAN, stretched the tag to 24 bits, and wrapped it in UDP so it rides any L3 fabric. They kept every trust assumption of 802.1Q and added one: that nobody untrusted can put a packet on the transport. On a flat fabric, a shared hypervisor, or a cloud VPC, that's often false - and when it's false, the hop is cleaner than any 802.1Q trick.
+Last post I said L2 adjacency isn't a security boundary. The place that bites hardest is the overlay - the thing every data center and Kubernetes cluster runs on now.
 
-## VXLAN on the wire
+VXLAN and Geneve took the VLAN, stretched the tag to 24 bits, and wrapped it in UDP so it rides over any L3 fabric. In the process they kept every trust assumption 802.1Q ever made and quietly added one more: that nobody untrusted can land a packet on the transport. On a flat fabric, a shared hypervisor, or a cloud VPC, that assumption is wrong all the time. And when it's wrong, the hop is cleaner than anything you can pull off with 802.1Q.
 
-A VXLAN frame is a whole Ethernet frame tunneled in UDP:
+## What's on the wire
+
+A VXLAN frame is a whole Ethernet frame stuffed inside UDP:
 
 ```
 +-------------------------------------------------------------+
@@ -22,40 +24,32 @@ A VXLAN frame is a whole Ethernet frame tunneled in UDP:
                    | VNI (24 bits)        | Reserved(8)  |
 ```
 
-The **VNI** is the tenant tag - the VLAN ID's successor, now 24 bits (~16.7M segments). UDP dst 4789. The inner frame gets delivered into that VNI as if it arrived natively.
+The **VNI** is the tenant tag - the VLAN ID's replacement, now 24 bits, so roughly 16.7 million segments instead of 4094. Destination UDP port 4789. Whatever Ethernet frame is inside gets dropped into that VNI like it showed up natively.
 
-RFC 7348's own security section is blunt: **no authentication, no encryption.** It leans on the transport being trusted and "traditional layer 2 security" keeping rogue endpoints off the VTEPs. Geneve (RFC 8926, UDP/6081) adds variable TLV options and the same posture - a receiver can't verify a TLV came from a legitimate sender. The tag got 2048x bigger and lost the one thing a trunk port at least nominally had: a physical boundary.
+Read RFC 7348's security section and it just tells you: **no authentication, no encryption.** The design leans entirely on the transport being trusted and on "traditional layer 2 security" keeping rogue hosts off the VTEPs. Geneve (RFC 8926, UDP/6081) adds variable TLV options and the same shrug - a receiver can't tell whether a TLV came from a real sender or an attacker. The tag got 2048 times bigger and lost the one thing a trunk port at least pretended to have: a physical edge.
 
 ## The attack is one UDP packet
 
-Decapsulation is unauthenticated, so the whole attack is: send a datagram to 4789 on a VTEP, set the VNI, put your Ethernet frame inside. The VTEP strips the outer headers and injects your frame into that tenant, indistinguishable from a real workload's. That's the TROOPERS 2019 VXLAN result in one line - no checks, no auth, wrapped frames decapsulated straight into the internal network.
+Decap is unauthenticated, so that's the entire attack. Send a datagram to 4789 on a VTEP, pick your VNI, put an Ethernet frame inside. The VTEP strips the outer headers and injects your frame into that tenant, and it looks exactly like something a real workload sent. ERNW showed this at TROOPERS back in 2019 - no checks, no auth, wrapped frames decapsulated straight into the internal network.
 
-Three capabilities fall out of that one primitive.
+Three things fall out of that one move.
 
-**Cross-tenant injection.** Any host that reaches UDP/4789 on a VTEP injects a frame into any VNI it names. On a shared hypervisor or flat management fabric, a compromised workload hits the host's VTEP and crosses into a neighbor's overlay - exactly what the overlay was sold to prevent. No tag-strip trick, no one-way limit like double tagging. Full frame into the segment.
+**You cross tenants.** Anything that can get a packet to UDP/4789 on a VTEP can drop a frame into any VNI it names. On a shared hypervisor or a flat management fabric, a popped workload reaches the host's VTEP and steps into a neighbor's overlay - the one thing the overlay was sold to prevent. No tag-stripping dance, no one-way limit like double tagging. Full frame, right into the segment.
 
-**VNI enumeration.** 24 bits sounds large until you probe it at line rate. Sweep VNIs, watch for ICMP unreachables, timing deltas, or FDB-driven responses, and you map the live tenant segments on a VTEP. Full scan of the space finishes in minutes. The width sold as scalability is a recon surface.
+**You enumerate.** 24 bits sounds like a lot until you remember you can spray it at line rate. Sweep VNIs, watch for ICMP unreachables, timing differences, FDB reactions, and you've mapped which tenants live on that VTEP in a couple of minutes. The width they sold as scalability is a recon surface.
 
-**VTEP source spoofing.** VTEPs learn inner-MAC to remote-VTEP-IP from the data plane - from the outer source IP. Forge the outer source to match a real VTEP and the receiver binds your chosen inner MAC to that source, then tunnels future unicast for that MAC wherever you point it. ARP spoofing one layer down, against the overlay's own learning.
+**You spoof the VTEP.** VTEPs learn inner-MAC to remote-VTEP-IP mappings from the data plane - from the outer source IP. Forge that outer source to match a real VTEP and the receiver happily binds your chosen inner MAC to it, then tunnels future traffic for that MAC wherever you aimed it. It's ARP spoofing again, one layer down, against the overlay's own learning.
 
-Same bug as 802.1Q: a device trusting a tag it never verifies. Bigger tag, routed transport, blast radius in tenants instead of ports. The Docker Swarm advisory GHSA-vwm3-crmr-xfxw is the mundane version - expose 4789 at a perimeter and the overlay is an internet-facing injection endpoint.
+Same bug as the last post, every time: a device trusting a tag it never bothered to verify. Just a wider tag, a routed transport, and a blast radius you measure in tenants instead of ports. The Docker Swarm advisory (GHSA-vwm3-crmr-xfxw) is the dumb version of this - leave 4789 exposed at the edge and your overlay becomes an injection API for the internet.
 
-## What holds
+## What actually holds
 
-No `tag native` equivalent here - the protocol has no field to authenticate, so you can't config the tag trust away. Everything is about restoring the boundary the encapsulation threw out.
+There's no `tag native` move here. The protocol has no field to authenticate, so you can't config the trust back in. Everything is about rebuilding the edge the encapsulation threw away.
 
-- **Underlay ports are the real boundary.** Infra ACLs: UDP/4789 and /6081 only from known VTEP source IPs, default drop, enforced on the physical interface before the VXLAN stack sees the packet. Highest-value control, most often missing.
-- **Never expose 4789/6081 at a perimeter**, encrypted or not. A firewall taking overlay ports from untrusted space is an unauthenticated frame-injection API.
-- **Authenticate the transport.** MACsec on underlay links, IPsec around the UDP (ESP transport mode keeps the outer IP for ECMP/offload), or WireGuard-mode encryption like Cilium does - authenticated encryption, no unauthenticated decap path left.
-- **Kill data-plane learning.** FDB from a control plane (EVPN/BGP) or static with `nolearning`, so a spoofed outer source has nothing to poison. Removes the third capability outright.
+- **The underlay ports are the real boundary.** ACL them: 4789 and 6081 only from known VTEP source IPs, drop everything else, and do it on the physical interface before the VXLAN stack ever sees the packet. Highest-value control and the one people skip.
+- **Never put 4789/6081 at a perimeter**, encrypted or not. A firewall that accepts overlay ports from untrusted space is handing out an unauthenticated frame-injection API.
+- **Authenticate the transport.** MACsec on the underlay, IPsec around the UDP (ESP transport mode keeps the outer IP so you don't lose ECMP or offload), or go full WireGuard-mode like Cilium and leave no unauthenticated decap path at all.
+- **Kill data-plane learning.** Drive the FDB from a control plane (EVPN/BGP) or pin it static with `nolearning`, and a spoofed outer source has nothing left to poison.
 - **uRPF and anti-spoofing** so forged outer source IPs die at the first hop.
 
-Every isolation primitive that carries tenancy in an unauthenticated tag is the same bet: secure only while no untrusted party can reach the device honoring the tag. Overlays widened the tag, routed it across the data center, and raised the stakes from a VLAN to a tenant. Put the auth and the ACLs on the transport. The tag was never going to carry it.
-
-## Sources
-
-- [RFC 7348 - VXLAN](https://datatracker.ietf.org/doc/html/rfc7348) (Section 6, Security Considerations)
-- [RFC 8926 - Geneve](https://datatracker.ietf.org/doc/html/rfc8926)
-- [TROOPERS19 - VXLAN Security / Injection (ERNW)](https://troopers.de/downloads/troopers19/TROOPERS19_AR_VXLAN_Security.pdf)
-- [VXLAN and Geneve Overlay Network Security](https://www.systemshardening.com/articles/network/vxlan-geneve-overlay-security/)
-- [Docker moby advisory GHSA-vwm3-crmr-xfxw](https://github.com/moby/moby/security/advisories/GHSA-vwm3-crmr-xfxw)
+Every isolation primitive that carries tenancy in an unauthenticated tag is the same bet: safe exactly as long as nobody untrusted can reach the device that honors the tag. Overlays didn't fix that bet. They made the tag bigger, routed it across the whole data center, and moved the stakes from a VLAN to a tenant. Put the auth and the ACLs on the transport, because the tag was never going to carry it.
