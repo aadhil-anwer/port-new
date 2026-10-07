@@ -1,7 +1,7 @@
 ---
 title: "VNI Hopping: VLAN Hopping Grew Up and Moved to the Data Center"
 description: "VXLAN and Geneve rebuilt the VLAN as a 24-bit tag inside a UDP packet with no authentication by design. One packet to UDP/4789 on a VTEP injects a frame into any tenant you name."
-date: 2026-10-08
+date: 2026-10-07
 tags: [infrasec, network-security, vxlan, geneve, overlay, cloud]
 type: blog
 ---
