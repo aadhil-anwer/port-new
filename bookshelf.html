@@ -21,7 +21,7 @@ description: "Aadhil Anwar's reading list: security and networking books, Malaya
       <div class="shelf-block">
         <h3 class="shelf-label">{{ subcat }}</h3>
         {% for book in subcat_books %}
-        <span class="shelf-entry">{{ book.title }} <span class="text-muted">&mdash; {{ book.author }}</span></span>
+        <span class="shelf-entry"><a class="shelf-link" href="{% if book.link %}{{ book.link }}{% else %}https://www.goodreads.com/search?q={{ book.title | append: ' ' | append: book.author | url_encode }}{% endif %}" target="_blank" rel="noopener">{{ book.title }}</a> <span class="text-muted">&mdash; {{ book.author }}</span></span>
         {% endfor %}
       </div>
       {% endfor %}

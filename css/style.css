@@ -711,6 +711,17 @@ strong {
   font-size: 0.75rem;
 }
 
+.shelf-link {
+  color: var(--text-secondary);
+  border-bottom: 1px solid transparent;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.shelf-link:hover {
+  color: var(--text-primary);
+  border-bottom-color: var(--accent);
+}
+
 @media (max-width: 768px) {
   .shelf-compact {
     columns: 1;
