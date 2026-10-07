@@ -1,0 +1,55 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link "Aadhil Anwar" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e5]:
+        - link "Home" [ref=e6] [cursor=pointer]:
+          - /url: /
+        - link "Blog" [ref=e7] [cursor=pointer]:
+          - /url: /blog
+        - link "Projects" [ref=e8] [cursor=pointer]:
+          - /url: /projects
+        - link "Bookshelf" [ref=e9] [cursor=pointer]:
+          - /url: /bookshelf
+        - link "About" [ref=e10] [cursor=pointer]:
+          - /url: /about
+  - main [ref=e11]:
+    - generic [ref=e13]:
+      - heading "Projects" [level=1] [ref=e14]
+      - paragraph [ref=e15]: Small tools and experiments. Most exist to answer a question I had.
+      - generic [ref=e17]:
+        - heading "Low-Level HTTP/1.1 Server" [level=3] [ref=e18]
+        - paragraph [ref=e19]: An HTTP/1.1 server in Python on raw TCP sockets, no frameworks. Request parsing, chunked transfer encoding, input validation, and error handling, written to understand what the spec guarantees and what implementations actually do.
+        - generic [ref=e20]:
+          - generic [ref=e21]: Python
+          - generic [ref=e22]: TCP Sockets
+          - generic [ref=e23]: HTTP
+        - link "View on GitHub →" [ref=e24] [cursor=pointer]:
+          - /url: https://github.com/aadhil-anwer
+  - contentinfo [ref=e25]:
+    - generic [ref=e26]:
+      - generic [ref=e27]:
+        - generic [ref=e28]:
+          - heading "Writings & Learning" [level=4] [ref=e29]
+          - link "Blog" [ref=e30] [cursor=pointer]:
+            - /url: /blog
+          - link "Writeups" [ref=e31] [cursor=pointer]:
+            - /url: /writeups
+          - link "Bookshelf" [ref=e32] [cursor=pointer]:
+            - /url: /bookshelf
+        - generic [ref=e33]:
+          - heading "More" [level=4] [ref=e34]
+          - link "Projects" [ref=e35] [cursor=pointer]:
+            - /url: /projects
+          - link "About" [ref=e36] [cursor=pointer]:
+            - /url: /about
+          - link "Contact" [ref=e37] [cursor=pointer]:
+            - /url: /contact
+        - generic [ref=e38]:
+          - heading "Connect" [level=4] [ref=e39]
+          - link "GitHub" [ref=e40] [cursor=pointer]:
+            - /url: https://github.com/aadhil-anwer
+          - link "LinkedIn" [ref=e41] [cursor=pointer]:
+            - /url: https://in.linkedin.com/in/aadhilanwer
+      - paragraph [ref=e43]: © 2026 Aadhil Anwar · Static HTML, no analytics, no trackers

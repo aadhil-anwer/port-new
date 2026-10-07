@@ -1,0 +1,45 @@
+- generic [active] [ref=f7e1]:
+  - navigation [ref=f7e2]:
+    - generic [ref=f7e3]:
+      - link "Aadhil Anwar" [ref=f7e4] [cursor=pointer]:
+        - /url: /
+      - button "Toggle menu" [ref=f7e5] [cursor=pointer]
+  - main [ref=f7e9]:
+    - generic [ref=f7e11]:
+      - heading "Projects" [level=1] [ref=f7e12]
+      - paragraph [ref=f7e13]: Small tools and experiments. Most exist to answer a question I had.
+      - generic [ref=f7e15]:
+        - heading "Low-Level HTTP/1.1 Server" [level=3] [ref=f7e16]
+        - paragraph [ref=f7e17]: An HTTP/1.1 server in Python on raw TCP sockets, no frameworks. Request parsing, chunked transfer encoding, input validation, and error handling, written to understand what the spec guarantees and what implementations actually do.
+        - generic [ref=f7e18]:
+          - generic [ref=f7e19]: Python
+          - generic [ref=f7e20]: TCP Sockets
+          - generic [ref=f7e21]: HTTP
+        - link "View on GitHub →" [ref=f7e22] [cursor=pointer]:
+          - /url: https://github.com/aadhil-anwer
+  - contentinfo [ref=f7e23]:
+    - generic [ref=f7e24]:
+      - generic [ref=f7e25]:
+        - generic [ref=f7e26]:
+          - heading "Writings & Learning" [level=4] [ref=f7e27]
+          - link "Blog" [ref=f7e28] [cursor=pointer]:
+            - /url: /blog
+          - link "Writeups" [ref=f7e29] [cursor=pointer]:
+            - /url: /writeups
+          - link "Bookshelf" [ref=f7e30] [cursor=pointer]:
+            - /url: /bookshelf
+        - generic [ref=f7e31]:
+          - heading "More" [level=4] [ref=f7e32]
+          - link "Projects" [ref=f7e33] [cursor=pointer]:
+            - /url: /projects
+          - link "About" [ref=f7e34] [cursor=pointer]:
+            - /url: /about
+          - link "Contact" [ref=f7e35] [cursor=pointer]:
+            - /url: /contact
+        - generic [ref=f7e36]:
+          - heading "Connect" [level=4] [ref=f7e37]
+          - link "GitHub" [ref=f7e38] [cursor=pointer]:
+            - /url: https://github.com/aadhil-anwer
+          - link "LinkedIn" [ref=f7e39] [cursor=pointer]:
+            - /url: https://in.linkedin.com/in/aadhilanwer
+      - paragraph [ref=f7e41]: © 2026 Aadhil Anwar · Static HTML, no analytics, no trackers
