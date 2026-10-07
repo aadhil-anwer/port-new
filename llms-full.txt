@@ -8,7 +8,7 @@
 
 ## About
 
-Aadhil Anwar is a security engineer working in network security at GoDaddy, focused on infrastructure security, access control architecture, and cloud security on AWS.
+Aadhil Anwar (full name Aadhil Anwar Sadath) is a security engineer working in network security at GoDaddy, focused on infrastructure security, access control architecture, and cloud security on AWS.
 
 He has reported high-severity vulnerabilities (CVSS 9.1, 8.8) in production APIs with working PoCs, designed ACL and VLAN segmentation policies for production environments, and integrated security into DevSecOps workflows.
 
@@ -20,18 +20,18 @@ He holds five industry certifications, has placed top 5 in multiple national CTF
 
 ### Skills
 
-Offensive: Web & API Exploitation, Penetration Testing, Vulnerability Research, CVE Discovery & Disclosure
+Offensive: Web & API Exploitation, Penetration Testing, Vulnerability Research, Bug Bounty & Responsible Disclosure
 Defensive: Network Security, SIEM & Log Analysis (Splunk, ELK), Threat Detection & Triage, Security Automation
 Networking: VLAN/ACL Architecture, Packet Analysis, Cloud Security (AWS), Network Architecture
 Tools: Wireshark, Burp Suite, Nmap, Splunk, ELK Stack, Metasploit, Nessus, Python, Bash, Git
 
 ### Certifications
 
-CompTIA Security+ CE, CompTIA Network+ CE, CompTIA CySA+, CompTIA PenTest+, QuickHeal DFIR
+CompTIA Security+ CE, CompTIA Network+ CE, CompTIA CySA+ (certified June 2026), CompTIA PenTest+, QuickHeal DFIR
 
 ### Achievements
 
-- Reported high-severity CVEs (CVSS 9.1, 8.8) in production APIs with working PoCs
+- Reported high-severity vulnerabilities (CVSS 9.1, 8.8) in production APIs through bug bounty, with working PoCs
 - Top 5 finishes in national CTFs: Noob Army (4th), Encrypt Edge (5th), RSA Cloud (6th)
 - Received 1,00,000 INR startup grant for a privacy-focused blockchain feedback system
 - Top 3% on TryHackMe across 120+ labs (offensive, defensive, automation)
@@ -53,9 +53,18 @@ Found a live phishing campaign targeting LPU students and staff. The phishing em
 
 ---
 
+## Bookshelf
+
+Books Aadhil has read or is reading ({{ site.data.books | size }} total).
+{% assign groups = site.data.books | group_by: "subcategory" %}{% for group in groups %}
+### {{ group.name }}
+{% for book in group.items %}
+- {{ book.title }} by {{ book.author }}{% endfor %}
+{% endfor %}
+---
+
 ## Contact
 
 - GitHub: https://github.com/aadhil-anwer
 - LinkedIn: https://in.linkedin.com/in/aadhilanwer
-- X: https://x.com/z3r0din
 - Website: https://aadhilanwar.dev

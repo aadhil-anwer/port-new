@@ -7,7 +7,6 @@ baseurl: ""
 author:
   name: Aadhil Anwar
   url: "https://aadhilanwar.dev"
-  twitter: z3r0din
 
 # Social profiles (used by jekyll-seo-tag for sameAs in JSON-LD)
 social:
@@ -15,12 +14,10 @@ social:
   links:
     - https://github.com/aadhil-anwer
     - https://in.linkedin.com/in/aadhilanwer
-    - https://x.com/z3r0din
 
 # Twitter card config
 twitter:
-  username: z3r0din
-  card: summary
+  card: summary_large_image
 
 # Default OG image for social shares
 defaults:
@@ -61,6 +58,7 @@ plugins:
 exclude:
   - README.md
   - AGENTS.md
+  - CLAUDE.md
   - DESIGN.md
   - PRODUCT.md
   - Gemfile
