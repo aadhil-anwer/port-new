@@ -60,6 +60,9 @@ plugins:
 
 exclude:
   - README.md
+  - AGENTS.md
+  - DESIGN.md
+  - PRODUCT.md
   - Gemfile
   - Gemfile.lock
   - node_modules

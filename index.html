@@ -76,12 +76,17 @@ description: "Aadhil Anwar - Security engineer at GoDaddy specializing in networ
       <div class="hero-content">
         <p class="hero-kicker">Network Security &middot; GoDaddy</p>
         <h1 class="hero-name">Aadhil Anwar</h1>
-        <h3 class="hero-tagline">Security engineer working on network and cloud infrastructure.</h3>
+        <p class="hero-tagline">Security engineer working on network and cloud infrastructure.</p>
         <div class="hero-bio">
           <p>I work in network security at <a href="https://godaddy.com" target="_blank">GoDaddy</a>: infrastructure security, access control architecture, and cloud security on AWS. Day to day that means segmentation and ACL design, and making sure controls still hold as the environment changes.</p>
           <p>Before this I spent time on the offensive side, reporting high-severity vulnerabilities in production APIs. Most traced back to ordinary causes: trust placed in the client, access checks in the wrong place. That experience informs how I approach defense.</p>
           <p>I write here about networks, security, and what I'm learning along the way.</p>
         </div>
+        <ul class="hero-facts">
+          <li><span class="fact-label">CVEs</span> CVSS 9.1 &amp; 8.8 in production APIs</li>
+          <li><span class="fact-label">TryHackMe</span> Top 3 percent, 120+ labs</li>
+          <li><span class="fact-label">CompTIA</span> Security+, Network+, CySA+, PenTest+</li>
+        </ul>
         <div class="hero-links">
           {% for link in site.data.social %}
           <a href="{{ link.url }}" {% if link.icon != 'email' %}target="_blank" rel="noopener"{% endif %} class="social-btn">
@@ -100,7 +105,7 @@ description: "Aadhil Anwar - Security engineer at GoDaddy specializing in networ
 
 <section class="section">
   <div class="container-wide">
-    <div class="columns-2">
+    <div class="columns-auto">
       <div class="col">
         <div class="section-header">
           <h2>Recent blog posts</h2>

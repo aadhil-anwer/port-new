@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-16T00:00:00+05:30",
+  "title": "Design System: Aadhil Anwar — Quiet Authority",
+  "extensions": {
+    "colorMeta": {
+      "accent": { "role": "primary", "displayName": "Muted Violet", "canonical": "#6e56cf", "tonalRamp": ["#1b1530", "#2a2150", "#3d3070", "#534494", "#6e56cf", "#8a76db", "#a99ce6", "#ccc4f1"] },
+      "link": { "role": "secondary", "displayName": "Blue-Violet Link", "canonical": "#8a8fff", "tonalRamp": ["#1c1d3a", "#2c2e5c", "#40438a", "#5a5eb8", "#8a8fff", "#a0a4ff", "#bcbfff", "#dadcff"] },
+      "bg-primary": { "role": "neutral", "displayName": "Void", "canonical": "#0c0c0e", "tonalRamp": ["#0c0c0e", "#141418", "#18181c", "#1e1e24", "#2a2a33", "#5c5c6a", "#a0a0ab", "#ededef"] },
+      "text-secondary": { "role": "neutral", "displayName": "Muted Ink", "canonical": "#a0a0ab", "tonalRamp": ["#2a2a30", "#3c3c44", "#5c5c6a", "#7c7c88", "#a0a0ab", "#c4c4cc", "#dcdce0", "#ededef"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero name only. The single largest type on the site." },
+      "title": { "displayName": "Title", "purpose": "Section headings (h2). Small by design — density is the voice." },
+      "label": { "displayName": "Label (Mono)", "purpose": "Kickers, dates, tags. The only place tracking widens and mono appears." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "transition-fast", "value": "150ms ease", "purpose": "Color/background state feedback on links, buttons, nav." },
+      { "name": "transition-base", "value": "200ms ease", "purpose": "Slightly slower state shifts (mobile menu transform)." },
+      { "name": "fade-in", "value": "fadeIn 0.3s-0.5s ease-out both, translateY(6px)", "purpose": "One-time page-load entrance, staggered in the hero, gated behind prefers-reduced-motion." }
+    ],
+    "breakpoints": [
+      { "name": "md", "value": "900px" },
+      { "name": "sm", "value": "768px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Inverted bright-on-dark button for the single most important action.",
+      "html": "<a href=\"#\" class=\"ds-btn-primary\">View resume</a>",
+      "css": ".ds-btn-primary { display: inline-block; background: #ededef; color: #0c0c0e; font-weight: 600; font-size: 0.825rem; letter-spacing: -0.01em; padding: 0.55rem 1.15rem; border-radius: 6px; text-decoration: none; transition: background 150ms ease; } .ds-btn-primary:hover { background: #d4d4d8; } .ds-btn-primary:focus-visible { outline: 2px solid #6e56cf; outline-offset: 2px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Ghost button: hairline outline, bright ink, fills on hover.",
+      "html": "<button class=\"ds-btn-secondary\">Copy email</button>",
+      "css": ".ds-btn-secondary { background: transparent; color: #ededef; border: 1px solid #23232b; font-weight: 600; font-size: 0.825rem; letter-spacing: -0.01em; padding: 0.55rem 1.15rem; border-radius: 6px; cursor: pointer; transition: background 150ms ease, border-color 150ms ease; } .ds-btn-secondary:hover { background: #1e1e24; border-color: #5c5c6a; }"
+    },
+    {
+      "name": "Social Button",
+      "kind": "chip",
+      "refersTo": "social-btn",
+      "description": "Card-pill link with icon for social profiles.",
+      "html": "<a href=\"#\" class=\"ds-social-btn\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.66-.22.66-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.16.58.67.48A10 10 0 0 0 22 12c0-5.52-4.48-10-10-10z\"/></svg><span>GitHub</span></a>",
+      "css": ".ds-social-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: #18181c; color: #a0a0ab; font-size: 0.825rem; font-weight: 500; padding: 0.4rem 0.85rem; border-radius: 6px; text-decoration: none; transition: all 150ms ease; } .ds-social-btn:hover { background: #1e1e24; color: #ededef; } .ds-social-btn svg { color: inherit; }"
+    },
+    {
+      "name": "Tag",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "Mono metadata tag for CVE ids, tech stack, post categories.",
+      "html": "<span class=\"ds-tag\">CVSS 9.1</span>",
+      "css": ".ds-tag { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 0.675rem; font-weight: 500; letter-spacing: 0.01em; color: #a0a0ab; background: #161619; padding: 0.15rem 0.5rem; border-radius: 4px; }"
+    },
+    {
+      "name": "Post Item",
+      "kind": "custom",
+      "refersTo": "post-item",
+      "description": "A blog/writeup list row: mono date, title link, hover lift on the title color.",
+      "html": "<div class=\"ds-post-item\"><span class=\"ds-post-date\">Jun 14, 2026</span><span class=\"ds-post-sep\">:</span><a href=\"#\" class=\"ds-post-title\">Segmentation that holds as the network changes</a></div>",
+      "css": ".ds-post-item { display: flex; align-items: baseline; gap: 0.5rem; padding: 0.3rem 0; } .ds-post-date { font-family: 'JetBrains Mono', monospace; font-size: 0.775rem; color: #5c5c6a; } .ds-post-sep { color: #5c5c6a; } .ds-post-title { color: #8a8fff; text-decoration: none; font-size: 0.875rem; transition: color 150ms ease; } .ds-post-title:hover { color: #a0a4ff; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Terminal Notebook",
+    "overview": "The workspace of someone who reads syslogs for a living and writes things down precisely. Near-black surfaces, small dense type, a single restrained violet that almost never appears. The design reads like a well-configured terminal and a careful engineer's notes: nothing is loud, everything is legible, and the substance carries weight. Density is the signature — type runs small, tracking is tight, layout favors information over whitespace. Minimalism-as-restraint, not minimalism-as-emptiness. A four-tier near-black elevation system creates depth without a single drop shadow.",
+    "keyCharacteristics": [
+      "Dark-only, four-tier near-black elevation (#0c0c0e to #1e1e24), no shadows.",
+      "Small, dense, tightly-tracked type. Information density over whitespace.",
+      "A muted violet accent (#6e56cf) used on under 10% of any screen.",
+      "Inter for everything visible; JetBrains Mono reserved for labels, dates, and code.",
+      "Motion is a brief, one-time entrance fade; never scroll-triggered decoration."
+    ],
+    "rules": [
+      { "name": "The One Voice Rule", "body": "The violet accent appears on under 10% of any given screen. If a comp has violet in three places above the fold, two of them are wrong.", "section": "colors" },
+      { "name": "The No-Stripe Rule", "body": "Color never arrives as a border-left accent bar. Emphasis comes from the ink ramp, a full hairline border, or a background tier shift.", "section": "colors" },
+      { "name": "The Mono-Means-Something Rule", "body": "JetBrains Mono is reserved for content that is literally code, data, or metadata. Never set prose in mono to look technical.", "section": "typography" },
+      { "name": "The Quiet Ceiling Rule", "body": "Display type stops at ~2.5rem. The page states; it does not shout. No clamp() max above 3rem.", "section": "typography" },
+      { "name": "The No-Shadow Rule", "body": "Surfaces are flat. Separate layers by shifting the background tier or adding a hairline, never a drop shadow or glass blur.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep the violet accent (#6e56cf) on under 10% of any screen.",
+      "Do convey depth by stepping up the near-black tier ramp and using 1px hairlines, never shadows.",
+      "Do reserve JetBrains Mono for real code, data, timestamps, and tags.",
+      "Do keep type small and dense with tight tracking; let 1.7 line-height carry readability.",
+      "Do let specifics carry credibility, not adjectives.",
+      "Do gate every animation behind prefers-reduced-motion and keep entrances to a single page-load fade.",
+      "Do keep body text on #a0a0ab or brighter to hold WCAG AA 4.5:1."
+    ],
+    "donts": [
+      "Don't do hacker/terminal cosplay: green-on-black, matrix rain, glitch text, skull/lock iconography.",
+      "Don't build the SaaS landing template: gradient-text heroes, identical feature-card grids, tracked-uppercase eyebrows, big-number metric blocks.",
+      "Don't drift into editorial-magazine affectation: display-serif italics, drop caps, broadsheet column rules.",
+      "Don't use background-clip:text gradient text anywhere.",
+      "Don't use a border-left/right greater than 1px as a colored accent stripe.",
+      "Don't introduce drop shadows or decorative glassmorphism to fake depth.",
+      "Don't set #5c5c6a on body-length reading text; it fails AA on the dark backgrounds.",
+      "Don't nest cards, or push display type past ~2.5rem."
+    ]
+  }
+}
