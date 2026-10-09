@@ -1,7 +1,7 @@
 ---
 title: "VLAN Hopping Past the Textbook: Parser Confusion at Layer 2"
 description: "Switch spoofing and double tagging are the boring ones. The VLAN hops that still work bypass DAI, RA Guard, and DHCP snooping by making the switch and the host disagree about the same frame."
-date: 2026-10-07
+date: 2026-09-23
 tags: [infrasec, network-security, layer2, vlan, 802.1Q]
 type: blog
 ---
